@@ -1,17 +1,31 @@
-<!-- Converted by suse-upgrade version 1.1 -->
-
-<book xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:lang="en"><title>OpenStack Admin User Guide</title><info><productname>SUSE OpenStack Cloud</productname><productnumber>6</productnumber><legalnotice role="cc-by" xml:base="../local/git/doc-cloud/xml/copyright_openstack.xml">
+<!DOCTYPE book PUBLIC
+"-//OASIS//DTD DocBook XML V4.5//EN"
+"http://docbook.org/xml/4.5/docbookx.dtd"
+[
+<!--
+  <!ENTITY % entities SYSTEM "entity-decl.ent">
+  %entities;
+-->
+]>
+<book lang="en"><title>OpenStack Admin User Guide</title><bookinfo><productname>SUSE OpenStack Cloud</productname><productnumber>6</productnumber><?xml-stylesheet href="urn:x-daps:xslt:profiling:novdoc-profile.xsl" 
+ type="text/xml"
+ title="Profiling step"?><!--
+     Please keep this document neatly formatted, because a text version
+     for LICENSE.txt is created form this source. That means only the
+     xml tags will be stripped, the rest of the formatting will appear
+     in the txt file as is.
+--><legalnotice role="cc-by" xml:base="../local/git/doc-cloud/xml/copyright_openstack.xml">
  <para>Except where otherwise noted, this document is licensed under 
   <emphasis role="bold">Creative Commons Attribution 3.0 License </emphasis>: 
-  <link xlink:href="http://creativecommons.org/licenses/by/3.0/legalcode"/>
+  <ulink url="http://creativecommons.org/licenses/by/3.0/legalcode"/>
  </para>
 </legalnotice><abstract><title>Abstract</title><para>OpenStack is an open source cloud computing platform for public and
 private clouds. A series of interrelated projects deliver a cloud
 infrastructure solution. This guide shows OpenStack admin users how to
 create and manage resources in an OpenStack cloud with the OpenStack
 dashboard or OpenStack client commands.</para><para>This guide documents OpenStack Liberty, OpenStack Kilo, and OpenStack
-Juno releases.</para></abstract></info><chapter xml:base="common/conventions.xml"><title>Conventions</title><info/>
-  
+Juno releases.</para></abstract></bookinfo><chapter xml:base="common/conventions.xml">
+  <title>Conventions</title>
   <para>The OpenStack documentation uses several typesetting conventions.</para>
   <section>
     <title>Notices</title>
@@ -36,17 +50,17 @@ issues.</para>
   </section>
   <section>
     <title>Command prompts</title>
-    <screen language="console"><![CDATA[$ command]]></screen>
+    <screen language="console">$ command</screen>
     <para>Any user, including the <literal>root</literal> user, can run commands that are
 prefixed with the <literal>$</literal> prompt.</para>
-    <screen language="console"><![CDATA[# command]]></screen>
+    <screen language="console"># command</screen>
     <para>The <literal>root</literal> user must run commands that are prefixed with the <literal>#</literal>
 prompt. You can also prefix these commands with the <command>sudo</command>
 command, if available, to run them.</para>
   </section>
 </chapter>
-<chapter><title>How can I administer an OpenStack cloud?</title><info/>
-  
+<chapter>
+  <title>How can I administer an OpenStack cloud?</title>
   <para>As an OpenStack cloud administrative user, you can manage tenants,
 known as projects, users, services, images, flavors, and quotas.</para>
   <para>The examples in this guide show you how to perform tasks by using the
@@ -54,7 +68,7 @@ following methods:</para>
   <itemizedlist>
     <listitem>
       <para>OpenStack dashboard. Use this web-based graphical interface, code
-named <link xlink:href="https://git.openstack.org/cgit/openstack/horizon">horizon</link>,
+named <ulink url="https://git.openstack.org/cgit/openstack/horizon">horizon</ulink>,
 to view, create, and manage resources and services.</para>
     </listitem>
     <listitem>
@@ -66,7 +80,7 @@ tasks by using scripts.</para>
   </itemizedlist>
   <para>You can modify these examples for your specific use cases.</para>
   <para>In addition to these ways of interacting with a cloud, you can access
-the OpenStack APIs directly or indirectly through <link xlink:href="http://curl.haxx.se">cURL</link> commands or
+the OpenStack APIs directly or indirectly through <ulink url="http://curl.haxx.se">cURL</ulink> commands or
 open SDKs. You can automate access or build tools to manage resources
 and services by using the native OpenStack APIs or the EC2
 compatibility API.</para>
@@ -81,14 +95,14 @@ have years of experience with Linux-based tools for system
 administration. You should also be familiar with OpenStack basics,
 such as managing projects and users, troubleshooting, performing
 backup and recovery, and monitoring. For more information, see the
-<link xlink:href="http://docs.openstack.org/ops">OpenStack Operations Guide</link>.</para>
+<ulink url="http://docs.openstack.org/ops">OpenStack Operations Guide</ulink>.</para>
   </section>
 </chapter>
-<chapter><title>OpenStack dashboard</title><info/><para>As a cloud administrative user, the OpenStack dashboard lets you
+<chapter><title>OpenStack dashboard</title><para>As a cloud administrative user, the OpenStack dashboard lets you
 create and manage projects, users, images, and flavors. You can also
 set quotas, and create and manage services. For information about using
-the dashboard to perform end user tasks, see the <link xlink:href="http://docs.openstack.org/user-guide/">OpenStack End User
-Guide</link>.</para><section xml:base="common/log_in_dashboard.xml">
+the dashboard to perform end user tasks, see the <ulink url="http://docs.openstack.org/user-guide/">OpenStack End User
+Guide</ulink>.</para><section xml:base="common/log_in_dashboard.xml">
   <title>Log in to the dashboard</title>
   <para>The dashboard is generally installed on the controller node.</para>
   <procedure>
@@ -102,10 +116,10 @@ password.</para>
       <note>
         <para>To use the Virtual Network Computing (VNC) client for the dashboard,
 your browser must support HTML5 Canvas and HTML5 WebSockets. The VNC
-client is based on noVNC. For details, see <link xlink:href="https://github.com/kanaka/noVNC/blob/master/README.md">noVNC: HTML5 VNC
-Client</link>.
-For a list of supported browsers, see <link xlink:href="https://github.com/kanaka/noVNC/wiki/Browser-support">Browser
-support</link>.</para>
+client is based on noVNC. For details, see <ulink url="https://github.com/kanaka/noVNC/blob/master/README.md">noVNC: HTML5 VNC
+Client</ulink>.
+For a list of supported browsers, see <ulink url="https://github.com/kanaka/noVNC/wiki/Browser-support">Browser
+support</ulink>.</para>
       </note>
     </step>
     <step>
@@ -141,7 +155,7 @@ permissions, or roles, of the user you are logged in as.</para>
       </itemizedlist>
     </step>
   </procedure>
-  <section xml:id="dashboard-project-tab">
+  <section id="dashboard-project-tab">
     <title>OpenStack dashboard — <guilabel>Project</guilabel> tab</title>
     <para>Projects are organizational units in the cloud, and are also known as
 tenants or accounts. Each user is a member of one or more projects.
@@ -246,7 +260,7 @@ types for HOT templates.</para>
       </itemizedlist>
     </section>
   </section>
-  <section xml:id="dashboard-admin-tab">
+  <section id="dashboard-admin-tab">
     <title>OpenStack dashboard — <guilabel>Admin</guilabel> tab</title>
     <para>Administrative users can use the <guilabel>Admin</guilabel> tab to view usage and to
 manage instances, volumes, flavors, images, networks and so on.</para>
@@ -358,7 +372,7 @@ services.</para>
       </itemizedlist>
     </section>
   </section>
-  <section xml:id="dashboard-identity-tab">
+  <section id="dashboard-identity-tab">
     <title>OpenStack dashboard — <guilabel>Identity</guilabel> tab</title>
     <figure>
       <title>Identity tab</title>
@@ -381,7 +395,7 @@ and delete projects.</para>
       </listitem>
     </itemizedlist>
   </section>
-  <section xml:id="dashboard-settings-tab">
+  <section id="dashboard-settings-tab">
     <title>OpenStack dashboard — <guilabel>Settings</guilabel> tab</title>
     <figure>
       <title>Settings tab</title>
@@ -413,13 +427,13 @@ for the projects to which you belong. You can also create
 and manage images for users in all projects to which you have
 access.</para>
   <para>To create and manage images in specified projects as an end
-user, see the <link xlink:href="http://docs.openstack.org/user-guide/">OpenStack End User Guide</link>.</para>
+user, see the <ulink url="http://docs.openstack.org/user-guide/">OpenStack End User Guide</ulink>.</para>
   <para>To create and manage images as an administrator for other
 users, use the following procedures.</para>
   <section>
     <title>Create images</title>
-    <para>For details about image creation, see the <link xlink:href="http://docs.openstack.org/image-guide/">Virtual Machine Image
-Guide</link>.</para>
+    <para>For details about image creation, see the <ulink url="http://docs.openstack.org/image-guide/">Virtual Machine Image
+Guide</ulink>.</para>
     <procedure>
       <step>
         <para>Log in to the dashboard.</para>
@@ -731,7 +745,7 @@ projects. You can view, terminate, edit, perform a soft or hard reboot,
 create a snapshot from, and migrate instances. You can also view the
 logs for instances or launch a VNC console for an instance.</para>
   <para>For information about using the Dashboard to launch instances as an end
-user, see the <link xlink:href="http://docs.openstack.org/user-guide/dashboard_launch_instances.html">OpenStack End User Guide</link>.</para>
+user, see the <ulink url="http://docs.openstack.org/user-guide/dashboard_launch_instances.html">OpenStack End User Guide</ulink>.</para>
   <section>
     <title>Create instance snapshots</title>
     <procedure>
@@ -758,7 +772,7 @@ in the <guilabel>Images</guilabel> category.</para>
         <para>To launch an instance from the snapshot, select the snapshot and
 click <guilabel>Launch Instance</guilabel>. For information about launching
 instances, see the
-<link xlink:href="http://docs.openstack.org/user-guide/dashboard_launch_instances.html">OpenStack End User Guide</link>.</para>
+<ulink url="http://docs.openstack.org/user-guide/dashboard_launch_instances.html">OpenStack End User Guide</ulink>.</para>
       </step>
     </procedure>
   </section>
@@ -1243,7 +1257,7 @@ some metadata keys, then add it to this flavor and set them values.</para>
           </tgroup>
         </table>
         <para>For information about supporting metadata keys, see the
-<link xlink:href="http://docs.openstack.org/admin-guide-cloud/compute-flavors.html">OpenStack Cloud Administrator Guide</link>.</para>
+<ulink url="http://docs.openstack.org/admin-guide-cloud/compute-flavors.html">OpenStack Cloud Administrator Guide</ulink>.</para>
       </step>
     </procedure>
   </section>
@@ -1281,12 +1295,12 @@ undo this action.</para>
 persistent storage. Users can attach a volume to a running instance or detach
 a volume and attach it to another instance at any time. For information about
 using the dashboard to create and manage volumes as an end user, see the
-<link xlink:href="http://docs.openstack.org/user-guide/dashboard_manage_volumes.html">OpenStack End User Guide</link>.</para>
+<ulink url="http://docs.openstack.org/user-guide/dashboard_manage_volumes.html">OpenStack End User Guide</ulink>.</para>
   <para>As an administrative user, you can manage volumes and volume types for users
 in various projects. You can create and delete volume types, and you can view
 and delete volumes. Note that a volume can be encrypted by using the steps
 outlined below.</para>
-  <section xml:id="create-a-volume-type">
+  <section id="create-a-volume-type">
     <title>Create a volume type</title>
     <procedure>
       <step>
@@ -1493,7 +1507,7 @@ size would only be 128-bits*</para>
         </tbody>
       </tgroup>
     </informaltable>
-    <para><literal>*</literal> Source <link xlink:href="http://csrc.nist.gov/publications/nistpubs/800-38E/nist-sp-800-38E.pdf">NIST SP 800-38E</link></para>
+    <para><literal>*</literal> Source <ulink url="http://csrc.nist.gov/publications/nistpubs/800-38E/nist-sp-800-38E.pdf">NIST SP 800-38E</ulink></para>
   </section>
   <section>
     <title>Delete volume types</title>
@@ -1558,7 +1572,7 @@ and click the <guilabel>Volumes</guilabel> category.</para>
 allow or deny a running instance to have access to a share at any time.
 For information about using the dashboard to create and manage shares as
 an end user, see the
-<link xlink:href="http://docs.openstack.org/user-guide/dashboard_manage_shares.html">OpenStack End User Guide</link>.</para>
+<ulink url="http://docs.openstack.org/user-guide/dashboard_manage_shares.html">OpenStack End User Guide</ulink>.</para>
   <para>As an administrative user, you can manage shares and share types for users
 in various projects. You can create and delete share types, and you can view
 and delete shares.</para>
@@ -1742,7 +1756,7 @@ quotas for new tenants, as well as update quotas for existing tenants.</para>
   <note>
     <para>Using the command-line interface, you can manage quotas for the
 OpenStack Compute service, the OpenStack Block Storage service, and
-the OpenStack Networking service (see <link xlink:href="cli_set_quotas">Manage quotas</link>).
+the OpenStack Networking service (see <ulink url="cli_set_quotas">Manage quotas</ulink>).
 Additionally, you can update Compute service quotas for
 tenant users.</para>
   </note>
@@ -1961,7 +1975,7 @@ you can edit the default quota values.</para>
     <note>
       <para>The dashboard does not show all possible project quotas.
 To view and update the quotas for a service, use its
-command-line client. See <link xlink:href="cli_set_quotas">Manage quotas</link>.</para>
+command-line client. See <ulink url="cli_set_quotas">Manage quotas</ulink>.</para>
     </note>
   </section>
 </section>
@@ -2025,7 +2039,7 @@ only to administrators).
 The Telemetry service must be set up and administered through the
 <command>ceilometer</command> command-line interface (CLI).</para>
     <para>For basic administration information, refer to the "Measure Cloud
-Resources" chapter in the <link xlink:href="http://docs.openstack.org/user-guide/">OpenStack End User Guide</link>.</para>
+Resources" chapter in the <ulink url="http://docs.openstack.org/user-guide/">OpenStack End User Guide</ulink>.</para>
   </note>
   <section>
     <title>View resource statistics</title>
@@ -2065,7 +2079,7 @@ multiple key-value pairs. You can assign the same key-value pair to
 multiple aggregates.</para>
   <para>The scheduler uses this information to make scheduling decisions.
 For information, see
-<link xlink:href="http://docs.openstack.org/liberty/config-reference/content/section_compute-scheduler.html">Scheduling</link>.</para>
+<ulink url="http://docs.openstack.org/liberty/config-reference/content/section_compute-scheduler.html">Scheduling</ulink>.</para>
   <section>
     <title>To create a host aggregate</title>
     <procedure>
@@ -2170,7 +2184,7 @@ high availability.</para>
   <itemizedlist>
     <listitem>
       <para>administrative tasks on the command-line, see
-<link xlink:href="cli_admin_manage_stacks">Launch and manage stacks using the CLI</link>.</para>
+<ulink url="cli_admin_manage_stacks">Launch and manage stacks using the CLI</ulink>.</para>
       <note>
         <para>There are no administration-specific tasks that can be done through
 the Dashboard.</para>
@@ -2178,12 +2192,12 @@ the Dashboard.</para>
     </listitem>
     <listitem>
       <para>the basic creation and deletion of Orchestration stacks, refer to
-the <link xlink:href="http://docs.openstack.org/user-guide/dashboard_stacks.html">OpenStack End User Guide</link>.</para>
+the <ulink url="http://docs.openstack.org/user-guide/dashboard_stacks.html">OpenStack End User Guide</ulink>.</para>
     </listitem>
   </itemizedlist>
 </section>
 </chapter>
-<chapter><title>OpenStack command-line clients</title><info/><section xml:base="common/cli_overview.xml">
+<chapter><title>OpenStack command-line clients</title><section xml:base="common/cli_overview.xml">
   <title>Overview</title>
   <para>Each OpenStack project provides a command-line client, which enables
 you to access the project API through easy-to-use commands. For
@@ -2619,15 +2633,15 @@ setuptools easy to install. Search your package
 manager for setuptools to find an installation
 package. If you cannot find one, download the
 setuptools package directly from
-<link xlink:href="https://pypi.python.org/pypi/setuptools">https://pypi.python.org/pypi/setuptools</link>.</para>
+<ulink url="https://pypi.python.org/pypi/setuptools">https://pypi.python.org/pypi/setuptools</ulink>.</para>
               <para>The recommended way to install setuptools on
 Microsoft Windows is to follow the documentation
 provided on the setuptools website
-(<link xlink:href="https://pypi.python.org/pypi/setuptools">https://pypi.python.org/pypi/setuptools</link>).
+(<ulink url="https://pypi.python.org/pypi/setuptools">https://pypi.python.org/pypi/setuptools</ulink>).
 Another option is to use the unofficial binary
 installer maintained by Christoph Gohlke
-(<link xlink:href="http://www.lfd.uci.edu/~gohlke/pythonlibs/#setuptools">http://www.lfd.uci.edu/~gohlke/pythonlibs/
-#setuptools</link>).</para>
+(<ulink url="http://www.lfd.uci.edu/~gohlke/pythonlibs/#setuptools">http://www.lfd.uci.edu/~gohlke/pythonlibs/
+#setuptools</ulink>).</para>
             </entry>
           </row>
           <row>
@@ -2639,7 +2653,7 @@ installer maintained by Christoph Gohlke
 Microsoft Windows system, use pip. It is easy to
 use, ensures that you get the latest version of the
 clients from the
-<link xlink:href="https://pypi.python.org/">Python Package Index</link>,
+<ulink url="https://pypi.python.org/">Python Package Index</ulink>,
 and lets you update or remove the packages later on.</para>
               <para>Since the installation process compiles source
 files, this requires the related Python development
@@ -2649,7 +2663,7 @@ system:</para>
               <para>
                 <emphasis role="bold">MacOS</emphasis>
               </para>
-              <screen language="console"><![CDATA[# easy_install pip]]></screen>
+              <screen language="console"># easy_install pip</screen>
               <para>
                 <emphasis role="bold">Microsoft Windows</emphasis>
               </para>
@@ -2657,14 +2671,14 @@ system:</para>
 defined in the <literal>PATH</literal> environment variable, and
 use the <literal>easy_install</literal> command from the setuptools
 package:</para>
-              <screen language="console"><![CDATA[C:\>easy_install pip]]></screen>
+              <screen language="console">C:\&gt;easy_install pip</screen>
               <para>Another option is to use the unofficial binary
 installer provided by Christoph Gohlke
-(<link xlink:href="http://www.lfd.uci.edu/~gohlke/pythonlibs/#pip">http://www.lfd.uci.edu/~gohlke/pythonlibs/#pip</link>).</para>
+(<ulink url="http://www.lfd.uci.edu/~gohlke/pythonlibs/#pip">http://www.lfd.uci.edu/~gohlke/pythonlibs/#pip</ulink>).</para>
               <para>
                 <emphasis role="bold">Ubuntu and Debian</emphasis>
               </para>
-              <screen language="console"><![CDATA[# apt-get install python-dev python-pip]]></screen>
+              <screen language="console"># apt-get install python-dev python-pip</screen>
               <para>Note that extra dependencies may be required, per
 operating system, depending on the package being
 installed, such as is the case with Tempest.</para>
@@ -2673,25 +2687,25 @@ installed, such as is the case with Tempest.</para>
               </para>
               <para>A packaged version enables you to use yum to install
 the package:</para>
-              <screen language="console"><![CDATA[# yum install python-devel python-pip]]></screen>
+              <screen language="console"># yum install python-devel python-pip</screen>
               <para>There are also packaged versions of the clients
-available in <link xlink:href="https://www.rdoproject.org/">RDO</link>
+available in <ulink url="https://www.rdoproject.org/">RDO</ulink>
 that enable yum to install the clients as described
 in <xref linkend="installing-from-packages"/>.</para>
               <para>
                 <emphasis role="bold">SUSE Linux Enterprise Server</emphasis>
               </para>
               <para>A packaged version available in the Open Build
-Service (<link xlink:href="https://build.opensuse.org/package/show?package=python-pip&amp;project=Cloud:OpenStack:Master">https://build.opensuse.org/package/show?
-package=python-pip&amp;project=Cloud:OpenStack:Master</link>)
+Service (<ulink url="https://build.opensuse.org/package/show?package=python-pip&amp;project=Cloud:OpenStack:Master">https://build.opensuse.org/package/show?
+package=python-pip&amp;project=Cloud:OpenStack:Master</ulink>)
 enables you to use YaST or zypper to install the
 package.</para>
               <para>First, add the Open Build Service repository:</para>
-              <screen language="console"><![CDATA[# zypper addrepo -f obs://Cloud:OpenStack: \
-Liberty/SLE_12 Liberty]]></screen>
+              <screen language="console"># zypper addrepo -f obs://Cloud:OpenStack: \
+Liberty/SLE_12 Liberty</screen>
               <para>Then install pip and use it to manage client
 installation:</para>
-              <screen language="console"><![CDATA[# zypper install python-devel python-pip]]></screen>
+              <screen language="console"># zypper install python-devel python-pip</screen>
               <para>There are also packaged versions of the clients
 available that enable zypper to install the clients
 as described in <xref linkend="installing-from-packages"/>.</para>
@@ -2700,7 +2714,7 @@ as described in <xref linkend="installing-from-packages"/>.</para>
               </para>
               <para>You can install pip and use it to manage client
 installation:</para>
-              <screen language="console"><![CDATA[# zypper install python-devel python-pip]]></screen>
+              <screen language="console"># zypper install python-devel python-pip</screen>
               <para>There are also packaged versions of the clients
 available that enable zypper to install the clients
 as described in <xref linkend="installing-from-packages"/>.</para>
@@ -2714,7 +2728,7 @@ as described in <xref linkend="installing-from-packages"/>.</para>
     <title>Install the OpenStack client</title>
     <para>The following example shows the command for installing the OpenStack client
 with <literal>pip</literal>, which supports multiple services.</para>
-    <screen language="console"><![CDATA[# pip install python-openstackclient]]></screen>
+    <screen language="console"># pip install python-openstackclient</screen>
     <para>The following clients, while valid, are de-emphasized in favor of a common
 client. Instead of installing and learning all these clients, we recommend
 installing and using the OpenStack client. You may need to install an
@@ -2722,7 +2736,7 @@ individual project's client because coverage is not yet sufficient in the
 OpenStack client. If you need to install an individual client's project,
 replace the <literal>&lt;project&gt;</literal> name in this <literal>pip install</literal> command using the
 list below.</para>
-    <screen language="console"><![CDATA[# pip install python-<project>client]]></screen>
+    <screen language="console"># pip install python-&lt;project&gt;client</screen>
     <itemizedlist>
       <listitem>
         <para><literal>barbican</literal> - Key Manager Service API</para>
@@ -2802,22 +2816,22 @@ interactions.</para>
       <title>Installing with pip</title>
       <para>Use pip to install the OpenStack clients on a Linux, Mac OS X, or
 Microsoft Windows system. It is easy to use and ensures that you get the
-latest version of the client from the <link xlink:href="https://pypi.python.org/pypi">Python Package
-Index</link>. Also, pip enables you to update
+latest version of the client from the <ulink url="https://pypi.python.org/pypi">Python Package
+Index</ulink>. Also, pip enables you to update
 or remove a package.</para>
       <para>Install each client separately by using the following command:</para>
       <itemizedlist>
         <listitem>
           <para>For Mac OS X or Linux:</para>
-          <screen language="console"><![CDATA[# pip install python-PROJECTclient]]></screen>
+          <screen language="console"># pip install python-PROJECTclient</screen>
         </listitem>
         <listitem>
           <para>For Microsoft Windows:</para>
-          <screen language="console"><![CDATA[C:\>pip install python-PROJECTclient]]></screen>
+          <screen language="console">C:\&gt;pip install python-PROJECTclient</screen>
         </listitem>
       </itemizedlist>
     </section>
-    <section xml:id="installing-from-packages">
+    <section id="installing-from-packages">
       <title>Installing from packages</title>
       <para>RDO, openSUSE, SUSE Linux Enterprise, Debian, and Ubuntu have client packages
 that can be installed without <literal>pip</literal>.</para>
@@ -2825,26 +2839,26 @@ that can be installed without <literal>pip</literal>.</para>
         <listitem>
           <para>On Red Hat Enterprise Linux, CentOS, or Fedora, use <literal>yum</literal> to install
 the clients from the packaged versions available in
-<link xlink:href="https://www.rdoproject.org/">RDO</link>:</para>
-          <screen language="console"><![CDATA[# yum install python-PROJECTclient]]></screen>
+<ulink url="https://www.rdoproject.org/">RDO</ulink>:</para>
+          <screen language="console"># yum install python-PROJECTclient</screen>
         </listitem>
         <listitem>
           <para>For Ubuntu or Debian, use <literal>apt-get</literal> to install the clients from the
 packaged versions:</para>
-          <screen language="console"><![CDATA[# apt-get install python-PROJECTclient]]></screen>
+          <screen language="console"># apt-get install python-PROJECTclient</screen>
         </listitem>
         <listitem>
           <para>For openSUSE, use <literal>zypper</literal> to install the clients from the distribution
 packages service:</para>
-          <screen language="console"><![CDATA[# zypper install python-PROJECTclient]]></screen>
+          <screen language="console"># zypper install python-PROJECTclient</screen>
         </listitem>
         <listitem>
           <para>For SUSE Linux Enterprise Server, use <literal>zypper</literal> to install the clients from
 the distribution packages in the Open Build Service. First, add the Open
 Build Service repository:</para>
-          <screen language="console"><![CDATA[# zypper addrepo -f obs://Cloud:OpenStack:Liberty/SLE_12 Liberty]]></screen>
+          <screen language="console"># zypper addrepo -f obs://Cloud:OpenStack:Liberty/SLE_12 Liberty</screen>
           <para>Then you can install the packages:</para>
-          <screen language="console"><![CDATA[# zypper install python-PROJECTclient]]></screen>
+          <screen language="console"># zypper install python-PROJECTclient</screen>
         </listitem>
       </itemizedlist>
     </section>
@@ -2853,25 +2867,25 @@ Build Service repository:</para>
     <title>Upgrade or remove clients</title>
     <para>To upgrade a client, add the <option>--upgrade</option> option to the
 <command>pip install</command> command:</para>
-    <screen language="console"><![CDATA[# pip install --upgrade python-PROJECTclient]]></screen>
+    <screen language="console"># pip install --upgrade python-PROJECTclient</screen>
     <para>To remove the client, run the <command>pip uninstall</command> command:</para>
-    <screen language="console"><![CDATA[# pip uninstall python-PROJECTclient]]></screen>
+    <screen language="console"># pip uninstall python-PROJECTclient</screen>
   </section>
   <section>
     <title>What's next</title>
     <para>Before you can run client commands, you must create and source the
 <literal>PROJECT-openrc.sh</literal> file to set environment variables. See
-<link xlink:href="cli_set_environment_variables_using_openstack_rc">Set environment variables using the OpenStack RC file</link>.</para>
+<ulink url="cli_set_environment_variables_using_openstack_rc">Set environment variables using the OpenStack RC file</ulink>.</para>
   </section>
 </section>
 <section xml:base="common/cli_discover_version_number_for_a_client.xml">
   <title>Discover the version number for a client</title>
   <para>Run the following command to discover the version number for a client:</para>
-  <screen language="console"><![CDATA[$ PROJECT --version]]></screen>
+  <screen language="console">$ PROJECT --version</screen>
   <para>For example, to see the version number for the <literal>nova</literal> client, run the
 following command:</para>
-  <screen language="console"><![CDATA[$ nova --version
-2.31.0]]></screen>
+  <screen language="console">$ nova --version
+2.31.0</screen>
 </section>
 <section xml:base="common/cli_set_environment_variables_using_openstack_rc.xml">
   <title>Set environment variables using the OpenStack RC file</title>
@@ -2915,7 +2929,7 @@ an image with a <literal>glance</literal> client command.</para>
 <literal>PROJECT-openrc.sh</literal> file for the respective project.</para>
         <para>In the following example, the <literal>demo-openrc.sh</literal> file is sourced for
 the demo project:</para>
-        <screen language="console"><![CDATA[$ source demo-openrc.sh]]></screen>
+        <screen language="console">$ source demo-openrc.sh</screen>
       </step>
       <step>
         <para>When you are prompted for an OpenStack password, enter the password for
@@ -2931,21 +2945,21 @@ scratch, if you cannot download the file from the dashboard.</para>
       <step>
         <para>In a text editor, create a file named <literal>PROJECT-openrc.sh</literal> and add
 the following authentication information:</para>
-        <screen language="shell"><![CDATA[export OS_USERNAME=username
+        <screen language="shell">export OS_USERNAME=username
 export OS_PASSWORD=password
 export OS_TENANT_NAME=projectName
 export OS_AUTH_URL=https://identityHost:portNumber/v2.0
 # The following lines can be omitted
 export OS_TENANT_ID=tenantIDString
 export OS_REGION_NAME=regionName
-export OS_CACERT=/path/to/cacertFile]]></screen>
+export OS_CACERT=/path/to/cacertFile</screen>
       </step>
       <step>
         <para>On any shell from which you want to run OpenStack commands, source the
 <literal>PROJECT-openrc.sh</literal> file for the respective project. In this
 example, you source the <literal>admin-openrc.sh</literal> file for the admin
 project:</para>
-        <screen language="console"><![CDATA[$ source admin-openrc.sh]]></screen>
+        <screen language="console">$ source admin-openrc.sh</screen>
       </step>
     </procedure>
     <note>
@@ -2972,7 +2986,7 @@ the end of the <literal>help</literal> output of the various client commands. Fo
 example, you can override the <literal>OS_PASSWORD</literal> setting in the
 <literal>PROJECT-openrc.sh</literal> file by specifying a password on a
 <command>openstack</command> command, as follows:</para>
-    <screen language="console"><![CDATA[$ openstack --os-password PASSWORD service list]]></screen>
+    <screen language="console">$ openstack --os-password PASSWORD service list</screen>
     <para>Where <literal>PASSWORD</literal> is your password.</para>
     <para>A user specifies their username and password credentials to interact
 with OpenStack, using any client command. These credentials can be
@@ -3007,7 +3021,7 @@ You can also change quotas at the project level.</para>
   <para>Before you can delete a user account, you must remove the user account
 from its primary project.</para>
   <para>Before you can run keystone client commands, you must download and
-source an OpenStack RC file. See <link xlink:href="http://docs.openstack.org/user-guide/common/cli_set_environment_variables_using_openstack_rc.html#download-and-source-the-openstack-rc-file">Download and source the OpenStack RC file</link>.</para>
+source an OpenStack RC file. See <ulink url="http://docs.openstack.org/user-guide/common/cli_set_environment_variables_using_openstack_rc.html#download-and-source-the-openstack-rc-file">Download and source the OpenStack RC file</ulink>.</para>
   <section>
     <title>Projects</title>
     <para>A project is a group of zero or more users. In Compute, a project owns
@@ -3018,7 +3032,7 @@ pairing can have a role associated with it.</para>
       <title>List projects</title>
       <para>List all projects with their ID, name, and whether they are
 enabled or disabled:</para>
-      <screen language="console"><![CDATA[$ openstack project list
+      <screen language="console">$ openstack project list
 +----------------------------------+--------------------+
 | id                               | name               |
 +----------------------------------+--------------------+
@@ -3028,12 +3042,12 @@ enabled or disabled:</para>
 | 9208739195a34c628c58c95d157917d7 | invisible_to_admin |
 | 3943a53dc92a49b2827fae94363851e1 | service            |
 | 80cab5e1f02045abad92a2864cfd76cb | test_project       |
-+----------------------------------+--------------------+]]></screen>
++----------------------------------+--------------------+</screen>
     </section>
     <section>
       <title>Create a project</title>
       <para>Create a project named <literal>new-project</literal>:</para>
-      <screen language="console"><![CDATA[$ openstack project create --description 'my new project' new-project
+      <screen language="console">$ openstack project create --description 'my new project' new-project
 +-------------+----------------------------------+
 | Field       | Value                            |
 +-------------+----------------------------------+
@@ -3041,7 +3055,7 @@ enabled or disabled:</para>
 | enabled     | True                             |
 | id          | 1a4a0618b306462c9830f876b0bd6af2 |
 | name        | new-project                      |
-+-------------+----------------------------------+]]></screen>
++-------------+----------------------------------+</screen>
     </section>
     <section>
       <title>Update a project</title>
@@ -3050,19 +3064,19 @@ description, and enabled status of a project.</para>
       <itemizedlist>
         <listitem>
           <para>To temporarily disable a project:</para>
-          <screen language="console"><![CDATA[$ openstack project set PROJECT_ID --disable]]></screen>
+          <screen language="console">$ openstack project set PROJECT_ID --disable</screen>
         </listitem>
         <listitem>
           <para>To enable a disabled project:</para>
-          <screen language="console"><![CDATA[$ openstack project set PROJECT_ID --enable]]></screen>
+          <screen language="console">$ openstack project set PROJECT_ID --enable</screen>
         </listitem>
         <listitem>
           <para>To update the name of a project:</para>
-          <screen language="console"><![CDATA[$ openstack project set PROJECT_ID --name project-new]]></screen>
+          <screen language="console">$ openstack project set PROJECT_ID --name project-new</screen>
         </listitem>
         <listitem>
           <para>To verify your changes, show information for the updated project:</para>
-          <screen language="console"><![CDATA[$ openstack project show PROJECT_ID
+          <screen language="console">$ openstack project show PROJECT_ID
 +-------------+----------------------------------+
 | Field       | Value                            |
 +-------------+----------------------------------+
@@ -3070,14 +3084,14 @@ description, and enabled status of a project.</para>
 | enabled     | True                             |
 | id          | 1a4a0618b306462c9830f876b0bd6af2 |
 | name        | project-new                      |
-+-------------+----------------------------------+]]></screen>
++-------------+----------------------------------+</screen>
         </listitem>
       </itemizedlist>
     </section>
     <section>
       <title>Delete a project</title>
       <para>Specify the project ID to delete a project:</para>
-      <screen language="console"><![CDATA[$ openstack project delete PROJECT_ID]]></screen>
+      <screen language="console">$ openstack project delete PROJECT_ID</screen>
     </section>
   </section>
   <section>
@@ -3085,7 +3099,7 @@ description, and enabled status of a project.</para>
     <section>
       <title>List users</title>
       <para>List all users:</para>
-      <screen language="console"><![CDATA[$ openstack user list
+      <screen language="console">$ openstack user list
 +----------------------------------+----------+
 | id                               | name     |
 +----------------------------------+----------+
@@ -3093,7 +3107,7 @@ description, and enabled status of a project.</para>
 | 86c0de739bcb4802b8dc786921355813 | demo     |
 | 32ec34aae8ea432e8af560a1cec0e881 | glance   |
 | 7047fcb7908e420cb36e13bbd72c972c | nova     |
-+----------------------------------+----------+]]></screen>
++----------------------------------+----------+</screen>
     </section>
     <section>
       <title>Create a user</title>
@@ -3102,7 +3116,7 @@ specify a tenant ID, password, and email address. It is recommended
 that you include the tenant ID and password because the user cannot
 log in to the dashboard without this information.</para>
       <para>Create the <literal>new-user</literal> user:</para>
-      <screen language="console"><![CDATA[$ openstack user create --project new-project --password PASSWORD new-user
+      <screen language="console">$ openstack user create --project new-project --password PASSWORD new-user
 +----------+----------------------------------+
 | Field    | Value                            |
 +----------+----------------------------------+
@@ -3111,7 +3125,7 @@ log in to the dashboard without this information.</para>
 | id       | 6e5140962b424cb9814fb172889d3be2 |
 | name     | new-user                         |
 | tenantId | new-project                      |
-+----------+----------------------------------+]]></screen>
++----------+----------------------------------+</screen>
     </section>
     <section>
       <title>Update a user</title>
@@ -3119,26 +3133,26 @@ log in to the dashboard without this information.</para>
       <itemizedlist>
         <listitem>
           <para>To temporarily disable a user account:</para>
-          <screen language="console"><![CDATA[$ openstack user set USER_NAME --disable]]></screen>
+          <screen language="console">$ openstack user set USER_NAME --disable</screen>
           <para>If you disable a user account, the user cannot log in to the
 dashboard. However, data for the user account is maintained, so you
 can enable the user at any time.</para>
         </listitem>
         <listitem>
           <para>To enable a disabled user account:</para>
-          <screen language="console"><![CDATA[$ openstack user set USER_NAME --enable]]></screen>
+          <screen language="console">$ openstack user set USER_NAME --enable</screen>
         </listitem>
         <listitem>
           <para>To change the name and description for a user account:</para>
-          <screen language="console"><![CDATA[$ openstack user set USER_NAME --name user-new --email new-user@example.com
-User has been updated.]]></screen>
+          <screen language="console">$ openstack user set USER_NAME --name user-new --email new-user@example.com
+User has been updated.</screen>
         </listitem>
       </itemizedlist>
     </section>
     <section>
       <title>Delete a user</title>
       <para>Delete a specified user account:</para>
-      <screen language="console"><![CDATA[$ openstack user delete USER_NAME]]></screen>
+      <screen language="console">$ openstack user delete USER_NAME</screen>
     </section>
   </section>
   <section>
@@ -3146,7 +3160,7 @@ User has been updated.]]></screen>
     <section>
       <title>List available roles</title>
       <para>List the available roles:</para>
-      <screen language="console"><![CDATA[$ openstack role list
+      <screen language="console">$ openstack role list
 +----------------------------------+---------------+
 | id                               | name          |
 +----------------------------------+---------------+
@@ -3155,20 +3169,20 @@ User has been updated.]]></screen>
 | 9fe2ff9ee4384b1894a90878d3e92bab | _member_      |
 | 6ecf391421604da985db2f141e46a7c8 | admin         |
 | deb4fffd123c4d02a907c2c74559dccf | anotherrole   |
-+----------------------------------+---------------+]]></screen>
++----------------------------------+---------------+</screen>
     </section>
     <section>
       <title>Create a role</title>
       <para>Users can be members of multiple projects. To assign users to multiple
 projects, define a role and assign that role to a user-project pair.</para>
       <para>Create the <literal>new-role</literal> role:</para>
-      <screen language="console"><![CDATA[$ openstack role create new-role
+      <screen language="console">$ openstack role create new-role
 +--------+----------------------------------+
 | Field  | Value                            |
 +--------+----------------------------------+
 | id     | bef1f95537914b1295da6aa038ef4de6 |
 | name   | new-role                         |
-+--------+----------------------------------+]]></screen>
++--------+----------------------------------+</screen>
     </section>
     <section>
       <title>Assign a role</title>
@@ -3178,7 +3192,7 @@ IDs.</para>
       <procedure>
         <step>
           <para>List users and note the user ID you want to assign to the role:</para>
-          <screen language="console"><![CDATA[$ openstack user list
+          <screen language="console">$ openstack user list
 +----------------------------------+----------+---------+----------------------+
 | id                               | name     | enabled | email                |
 +----------------------------------+----------+---------+----------------------+
@@ -3188,11 +3202,11 @@ IDs.</para>
 | 86c0de739bcb4802b8dc786921355813 | demo     | True    | demo@example.com     |
 | 32ec34aae8ea432e8af560a1cec0e881 | glance   | True    | glance@example.com   |
 | 7047fcb7908e420cb36e13bbd72c972c | nova     | True    | nova@example.com     |
-+----------------------------------+----------+---------+----------------------+]]></screen>
++----------------------------------+----------+---------+----------------------+</screen>
         </step>
         <step>
           <para>List role IDs and note the role ID you want to assign:</para>
-          <screen language="console"><![CDATA[$ openstack role list
+          <screen language="console">$ openstack role list
 +----------------------------------+---------------+
 | id                               | name          |
 +----------------------------------+---------------+
@@ -3202,11 +3216,11 @@ IDs.</para>
 | 6ecf391421604da985db2f141e46a7c8 | admin         |
 | deb4fffd123c4d02a907c2c74559dccf | anotherrole   |
 | bef1f95537914b1295da6aa038ef4de6 | new-role      |
-+----------------------------------+---------------+]]></screen>
++----------------------------------+---------------+</screen>
         </step>
         <step>
           <para>List projects and note the project ID you want to assign to the role:</para>
-          <screen language="console"><![CDATA[$ openstack project list
+          <screen language="console">$ openstack project list
 +----------------------------------+--------------------+---------+
 | id                               | name               | enabled |
 +----------------------------------+--------------------+---------+
@@ -3218,34 +3232,34 @@ IDs.</para>
 | 1a4a0618b306462c9830f876b0bd6af2 | project-new        |   True  |
 | 3943a53dc92a49b2827fae94363851e1 | service            |   True  |
 | 80cab5e1f02045abad92a2864cfd76cb | test_project       |   True  |
-+----------------------------------+--------------------+---------+]]></screen>
++----------------------------------+--------------------+---------+</screen>
         </step>
         <step>
           <para>Assign a role to a user-project pair. In this example, assign the
 <literal>new-role</literal> role to the <literal>demo</literal> and <literal>test-project</literal> pair:</para>
-          <screen language="console"><![CDATA[$ openstack role add --user USER_NAME --project TENANT_ID ROLE_NAME]]></screen>
+          <screen language="console">$ openstack role add --user USER_NAME --project TENANT_ID ROLE_NAME</screen>
         </step>
         <step>
           <para>Verify the role assignment:</para>
-          <screen language="console"><![CDATA[$ openstack role list --user USER_NAME --project TENANT_ID
+          <screen language="console">$ openstack role list --user USER_NAME --project TENANT_ID
 +--------------+----------+---------------------------+--------------+
 | id           | name     | user_id                   | tenant_id    |
 +--------------+----------+---------------------------+--------------+
 | bef1f9553... | new-role | 86c0de739bcb4802b21355... | 80cab5e1f... |
-+--------------+----------+---------------------------+--------------+]]></screen>
++--------------+----------+---------------------------+--------------+</screen>
         </step>
       </procedure>
     </section>
     <section>
       <title>View role details</title>
       <para>View details for a specified role:</para>
-      <screen language="console"><![CDATA[$ openstack role show ROLE_NAME
+      <screen language="console">$ openstack role show ROLE_NAME
 +----------+----------------------------------+
 | Field    | Value                            |
 +----------+----------------------------------+
 | id       | bef1f95537914b1295da6aa038ef4de6 |
 | name     | new-role                         |
-+----------+----------------------------------+]]></screen>
++----------+----------------------------------+</screen>
     </section>
     <section>
       <title>Remove a role</title>
@@ -3253,11 +3267,11 @@ IDs.</para>
       <procedure>
         <step>
           <para>Run the <command>openstack role remove</command> command:</para>
-          <screen language="console"><![CDATA[$ openstack role remove --user USER_NAME --project TENANT_ID ROLE_NAME]]></screen>
+          <screen language="console">$ openstack role remove --user USER_NAME --project TENANT_ID ROLE_NAME</screen>
         </step>
         <step>
           <para>Verify the role removal:</para>
-          <screen language="console"><![CDATA[$ openstack role list --user USER_NAME --project TENANT_ID]]></screen>
+          <screen language="console">$ openstack role list --user USER_NAME --project TENANT_ID</screen>
           <para>If the role was removed, the command output omits the removed role.</para>
         </step>
       </procedure>
@@ -3294,7 +3308,7 @@ default security group to allow all traffic from the subnet.</para>
   <para>Additionally, the number of maximum rules per security group is
 controlled by the <literal>security_group_rules</literal> and the number of allowed
 security groups per project is controlled by the <literal>security_groups</literal>
-quota (see the <link xlink:href="http://docs.openstack.org/user-guide-admin/cli_set_quotas.html">Manage quotas</link>
+quota (see the <ulink url="http://docs.openstack.org/user-guide-admin/cli_set_quotas.html">Manage quotas</ulink>
 section).</para>
   <section>
     <title>List and view current security groups</title>
@@ -3304,31 +3318,31 @@ project, using the <command>nova</command> command:</para>
       <step>
         <para>Ensure your system variables are set for the user and tenant for
 which you are checking security group rules. For example:</para>
-        <screen language="console"><![CDATA[export OS_USERNAME=demo00
-export OS_TENANT_NAME=tenant01]]></screen>
+        <screen language="console">export OS_USERNAME=demo00
+export OS_TENANT_NAME=tenant01</screen>
       </step>
       <step>
         <para>Output security groups, as follows:</para>
-        <screen language="console"><![CDATA[$ nova secgroup-list
+        <screen language="console">$ nova secgroup-list
 +---------+-------------+
 | Name    | Description |
 +---------+-------------+
 | default | default     |
 | open    | all ports   |
-+---------+-------------+]]></screen>
++---------+-------------+</screen>
       </step>
       <step>
         <para>View the details of a group, as follows:</para>
-        <screen language="console"><![CDATA[$ nova secgroup-list-rules groupName]]></screen>
+        <screen language="console">$ nova secgroup-list-rules groupName</screen>
         <para>For example:</para>
-        <screen language="console"><![CDATA[$ nova secgroup-list-rules open
+        <screen language="console">$ nova secgroup-list-rules open
 +-------------+-----------+---------+-----------+--------------+
 | IP Protocol | From Port | To Port | IP Range  | Source Group |
 +-------------+-----------+---------+-----------+--------------+
 | icmp        | -1        | 255     | 0.0.0.0/0 |              |
 | tcp         | 1         | 65535   | 0.0.0.0/0 |              |
 | udp         | 1         | 65535   | 0.0.0.0/0 |              |
-+-------------+-----------+---------+-----------+--------------+]]></screen>
++-------------+-----------+---------+-----------+--------------+</screen>
         <para>These rules are allow type rules as the default is deny. The first
 column is the IP protocol (one of icmp, tcp, or udp). The second and
 third columns specify the affected port range. The third column
@@ -3351,48 +3365,48 @@ which you are creating security group rules.</para>
       </step>
       <step>
         <para>Add the new security group, as follows:</para>
-        <screen language="console"><![CDATA[$ nova secgroup-create GroupName Description]]></screen>
+        <screen language="console">$ nova secgroup-create GroupName Description</screen>
         <para>For example:</para>
-        <screen language="console"><![CDATA[$ nova secgroup-create global_http "Allows Web traffic anywhere on the Internet."
+        <screen language="console">$ nova secgroup-create global_http "Allows Web traffic anywhere on the Internet."
 +--------------------------------------+-------------+----------------------------------------------+
 | Id                                   | Name        | Description                                  |
 +--------------------------------------+-------------+----------------------------------------------+
 | 1578a08c-5139-4f3e-9012-86bd9dd9f23b | global_http | Allows Web traffic anywhere on the Internet. |
-+--------------------------------------+-------------+----------------------------------------------+]]></screen>
++--------------------------------------+-------------+----------------------------------------------+</screen>
       </step>
       <step>
         <para>Add a new group rule, as follows:</para>
-        <screen language="console"><![CDATA[$ nova secgroup-add-rule secGroupName ip-protocol from-port to-port CIDR]]></screen>
+        <screen language="console">$ nova secgroup-add-rule secGroupName ip-protocol from-port to-port CIDR</screen>
         <para>The arguments are positional, and the <literal>from-port</literal> and <literal>to-port</literal>
 arguments specify the local port range connections are allowed to
 access, not the source and destination ports of the connection. For
 example:</para>
-        <screen language="console"><![CDATA[$ nova secgroup-add-rule global_http tcp 80 80 0.0.0.0/0
+        <screen language="console">$ nova secgroup-add-rule global_http tcp 80 80 0.0.0.0/0
 +-------------+-----------+---------+-----------+--------------+
 | IP Protocol | From Port | To Port | IP Range  | Source Group |
 +-------------+-----------+---------+-----------+--------------+
 | tcp         | 80        | 80      | 0.0.0.0/0 |              |
-+-------------+-----------+---------+-----------+--------------+]]></screen>
++-------------+-----------+---------+-----------+--------------+</screen>
         <para>You can create complex rule sets by creating additional rules. For
 example, if you want to pass both HTTP and HTTPS traffic, run:</para>
-        <screen language="console"><![CDATA[$ nova secgroup-add-rule global_http tcp 443 443 0.0.0.0/0
+        <screen language="console">$ nova secgroup-add-rule global_http tcp 443 443 0.0.0.0/0
 +-------------+-----------+---------+-----------+--------------+
 | IP Protocol | From Port | To Port | IP Range  | Source Group |
 +-------------+-----------+---------+-----------+--------------+
 | tcp         | 443       | 443     | 0.0.0.0/0 |              |
-+-------------+-----------+---------+-----------+--------------+]]></screen>
++-------------+-----------+---------+-----------+--------------+</screen>
         <para>Despite only outputting the newly added rule, this operation is
 additive (both rules are created and enforced).</para>
       </step>
       <step>
         <para>View all rules for the new security group, as follows:</para>
-        <screen language="console"><![CDATA[$ nova secgroup-list-rules global_http
+        <screen language="console">$ nova secgroup-list-rules global_http
 +-------------+-----------+---------+-----------+--------------+
 | IP Protocol | From Port | To Port | IP Range  | Source Group |
 +-------------+-----------+---------+-----------+--------------+
 | tcp         | 80        | 80      | 0.0.0.0/0 |              |
 | tcp         | 443       | 443     | 0.0.0.0/0 |              |
-+-------------+-----------+---------+-----------+--------------+]]></screen>
++-------------+-----------+---------+-----------+--------------+</screen>
       </step>
     </procedure>
   </section>
@@ -3405,9 +3419,9 @@ which you are deleting a security group.</para>
       </step>
       <step>
         <para>Delete the new security group, as follows:</para>
-        <screen language="console"><![CDATA[$ nova secgroup-delete GroupName]]></screen>
+        <screen language="console">$ nova secgroup-delete GroupName</screen>
         <para>For example:</para>
-        <screen language="console"><![CDATA[$ nova secgroup-delete global_http]]></screen>
+        <screen language="console">$ nova secgroup-delete global_http</screen>
       </step>
     </procedure>
   </section>
@@ -3425,9 +3439,9 @@ which you are creating a security group rule.</para>
       </step>
       <step>
         <para>Add a source group, as follows:</para>
-        <screen language="console"><![CDATA[$ nova secgroup-add-group-rule secGroupName source-group ip-protocol from-port to-port]]></screen>
+        <screen language="console">$ nova secgroup-add-group-rule secGroupName source-group ip-protocol from-port to-port</screen>
         <para>For example:</para>
-        <screen language="console"><![CDATA[$ nova secgroup-add-group-rule cluster global_http tcp 22 22]]></screen>
+        <screen language="console">$ nova secgroup-add-group-rule cluster global_http tcp 22 22</screen>
         <para>The <literal>cluster</literal> rule allows ssh access from any other instance that
 uses the <literal>global_http</literal> group.</para>
       </step>
@@ -3473,7 +3487,7 @@ authenticate and authorize other user requests.</para>
     <procedure>
       <step>
         <para>List the available services:</para>
-        <screen language="console"><![CDATA[$ openstack service list
+        <screen language="console">$ openstack service list
 +----------------------------------+----------+------------+
 | ID                               | Name     | Type       |
 +----------------------------------+----------+------------+
@@ -3486,11 +3500,11 @@ authenticate and authorize other user requests.</para>
 | 1aed4a6cf7274297ba4026cf5d5e96c5 | novav21  | computev21 |
 | bed063c790634c979778551f66c8ede9 | neutron  | network    |
 | 6feb2e0b98874d88bee221974770e372 |    s3    |    s3      |
-+----------------------------------+----------+------------+]]></screen>
++----------------------------------+----------+------------+</screen>
       </step>
       <step>
         <para>To create a service, run this command:</para>
-        <screen language="console"><![CDATA[$ openstack service create --name SERVICE_NAME --description SERVICE_DESCRIPTION SERVICE_TYPE]]></screen>
+        <screen language="console">$ openstack service create --name SERVICE_NAME --description SERVICE_DESCRIPTION SERVICE_TYPE</screen>
         <variablelist>
           <varlistentry>
             <term>The arguments are:</term>
@@ -3513,7 +3527,7 @@ or any other service identifier string.</para>
         </variablelist>
         <para>For example, to create a <literal>swift</literal> service of type
 <literal>object-store</literal>, run this command:</para>
-        <screen language="console"><![CDATA[$ openstack service create --name swift --description "object store service" object-store
+        <screen language="console">$ openstack service create --name swift --description "object store service" object-store
 +-------------+----------------------------------+
 | Field       | Value                            |
 +-------------+----------------------------------+
@@ -3522,13 +3536,13 @@ or any other service identifier string.</para>
 | id          | 84c23f4b942c44c38b9c42c5e517cd9a |
 | name        | swift                            |
 | type        | object-store                     |
-+-------------+----------------------------------+]]></screen>
++-------------+----------------------------------+</screen>
       </step>
       <step>
         <para>To get details for a service, run this command:</para>
-        <screen language="console"><![CDATA[$ openstack service show SERVICE_TYPE|SERVICE_NAME|SERVICE_ID]]></screen>
+        <screen language="console">$ openstack service show SERVICE_TYPE|SERVICE_NAME|SERVICE_ID</screen>
         <para>For example:</para>
-        <screen language="console"><![CDATA[$ openstack service show object-store
+        <screen language="console">$ openstack service show object-store
 +-------------+----------------------------------+
 | Field       | Value                            |
 +-------------+----------------------------------+
@@ -3537,7 +3551,7 @@ or any other service identifier string.</para>
 | id          | 84c23f4b942c44c38b9c42c5e517cd9a |
 | name        | swift                            |
 | type        | object-store                     |
-+-------------+----------------------------------+]]></screen>
++-------------+----------------------------------+</screen>
       </step>
     </procedure>
   </section>
@@ -3548,7 +3562,7 @@ or any other service identifier string.</para>
         <para>Create a project for the service users.
 Typically, this project is named <literal>service</literal>,
 but choose any name you like:</para>
-        <screen language="console"><![CDATA[$ openstack project create service
+        <screen language="console">$ openstack project create service
 +-------------+----------------------------------+
 | Field       | Value                            |
 +-------------+----------------------------------+
@@ -3556,7 +3570,7 @@ but choose any name you like:</para>
 | enabled     | True                             |
 | id          | 3e9f3f5399624b2db548d7f871bd5322 |
 | name        | service                          |
-+-------------+----------------------------------+]]></screen>
++-------------+----------------------------------+</screen>
       </step>
       <step>
         <para>Create service users for the relevant services for your
@@ -3564,22 +3578,22 @@ deployment.</para>
       </step>
       <step>
         <para>Assign the admin role to the user-project pair.</para>
-        <screen language="console"><![CDATA[$ openstack role add --project service --user SERVICE_USER_NAME admin
+        <screen language="console">$ openstack role add --project service --user SERVICE_USER_NAME admin
 +-------+----------------------------------+
 | Field | Value                            |
 +-------+----------------------------------+
 | id    | 233109e756c1465292f31e7662b429b1 |
 | name  | admin                            |
-+-------+----------------------------------+]]></screen>
++-------+----------------------------------+</screen>
       </step>
     </procedure>
   </section>
   <section>
     <title>Delete a service</title>
     <para>To delete a specified service, specify its ID.</para>
-    <screen language="console"><![CDATA[$ openstack service delete SERVICE_TYPE|SERVICE_NAME|SERVICE_ID]]></screen>
+    <screen language="console">$ openstack service delete SERVICE_TYPE|SERVICE_NAME|SERVICE_ID</screen>
     <para>For example:</para>
-    <screen language="console"><![CDATA[$ openstack service delete object-store]]></screen>
+    <screen language="console">$ openstack service delete object-store</screen>
   </section>
 </section>
 <section>
@@ -3589,7 +3603,7 @@ examples disable and enable the <literal>nova-compute</literal> service.</para>
   <procedure>
     <step>
       <para>List the Compute services:</para>
-      <screen language="console"><![CDATA[$ nova service-list
+      <screen language="console">$ nova service-list
 +------------------+----------+----------+---------+-------+----------------------------+-----------------+
 | Binary           | Host     | Zone     | Status  | State | Updated_at                 | Disabled Reason |
 +------------------+----------+----------+---------+-------+----------------------------+-----------------+
@@ -3599,20 +3613,20 @@ examples disable and enable the <literal>nova-compute</literal> service.</para>
 | nova-network     | devstack | internal | enabled | up    | 2013-10-16T00:56:06.000000 | None            |
 | nova-scheduler   | devstack | internal | enabled | up    | 2013-10-16T00:56:04.000000 | None            |
 | nova-consoleauth | devstack | internal | enabled | up    | 2013-10-16T00:56:07.000000 | None            |
-+------------------+----------+----------+---------+-------+----------------------------+-----------------+]]></screen>
++------------------+----------+----------+---------+-------+----------------------------+-----------------+</screen>
     </step>
     <step>
       <para>Disable a nova service:</para>
-      <screen language="console"><![CDATA[$ nova service-disable localhost.localdomain nova-compute --reason 'trial log'
+      <screen language="console">$ nova service-disable localhost.localdomain nova-compute --reason 'trial log'
 +----------+--------------+----------+-------------------+
 | Host     | Binary       | Status   | Disabled Reason   |
 +----------+--------------+----------+-------------------+
 | devstack | nova-compute | disabled | Trial log         |
-+----------+--------------+----------+-------------------+]]></screen>
++----------+--------------+----------+-------------------+</screen>
     </step>
     <step>
       <para>Check the service list:</para>
-      <screen language="console"><![CDATA[$ nova service-list
+      <screen language="console">$ nova service-list
 +------------------+----------+----------+---------+-------+----------------------------+------------------+
 | Binary           | Host     | Zone     | Status   | State | Updated_at                 | Disabled Reason |
 +------------------+----------+----------+---------+-------+----------------------------+------------------+
@@ -3622,20 +3636,20 @@ examples disable and enable the <literal>nova-compute</literal> service.</para>
 | nova-network     | devstack | internal | enabled  | up    | 2013-10-16T00:56:51.000000 | None            |
 | nova-scheduler   | devstack | internal | enabled  | up    | 2013-10-16T00:56:44.000000 | None            |
 | nova-consoleauth | devstack | internal | enabled  | up    | 2013-10-16T00:56:47.000000 | None            |
-+------------------+----------+----------+---------+-------+----------------------------+------------------+]]></screen>
++------------------+----------+----------+---------+-------+----------------------------+------------------+</screen>
     </step>
     <step>
       <para>Enable the service:</para>
-      <screen language="console"><![CDATA[$ nova service-enable localhost.localdomain nova-compute
+      <screen language="console">$ nova service-enable localhost.localdomain nova-compute
 +----------+--------------+---------+
 | Host     | Binary       | Status  |
 +----------+--------------+---------+
 | devstack | nova-compute | enabled |
-+----------+--------------+---------+]]></screen>
++----------+--------------+---------+</screen>
     </step>
     <step>
       <para>Check the service list:</para>
-      <screen language="console"><![CDATA[$ nova service-list
+      <screen language="console">$ nova service-list
 +------------------+----------+----------+---------+-------+----------------------------+-----------------+
 | Binary           | Host     | Zone     | Status  | State | Updated_at                 | Disabled Reason |
 +------------------+----------+----------+---------+-------+----------------------------+-----------------+
@@ -3645,7 +3659,7 @@ examples disable and enable the <literal>nova-compute</literal> service.</para>
 | nova-network     | devstack | internal | enabled | up    | 2013-10-16T00:57:11.000000 | None            |
 | nova-scheduler   | devstack | internal | enabled | up    | 2013-10-16T00:57:14.000000 | None            |
 | nova-consoleauth | devstack | internal | enabled | up    | 2013-10-16T00:57:07.000000 | None            |
-+------------------+----------+----------+---------+-------+----------------------------+-----------------+]]></screen>
++------------------+----------+----------+---------+-------+----------------------------+-----------------+</screen>
     </step>
   </procedure>
 </section>
@@ -3661,14 +3675,14 @@ The latter provides mechanisms to list and delete images, set and delete
 image metadata, and create images of a running instance or snapshot and
 backup types.</para>
   <para>After you upload an image, you cannot change it.</para>
-  <para>For details about image creation, see the <link xlink:href="http://docs.openstack.org/image-guide/">Virtual Machine Image
-Guide</link>.</para>
+  <para>For details about image creation, see the <ulink url="http://docs.openstack.org/image-guide/">Virtual Machine Image
+Guide</ulink>.</para>
   <section>
     <title>List or get details for images (glance)</title>
     <para>To get a list of images and to get further details about a single
 image, use <command>glance image-list</command> and <command>glance image-show</command>
 commands.</para>
-    <screen language="console"><![CDATA[$ glance image-list
+    <screen language="console">$ glance image-list
 +----------+---------------------------------+-------------+------------------+----------+--------+
 | ID       | Name                            | Disk Format | Container Format | Size     | Status |
 +----------+---------------------------------+-------------+------------------+----------+--------+
@@ -3676,8 +3690,8 @@ commands.</para>
 | df430... | cirros-0.3.2-x86_64-uec-kernel  | aki         | aki              | 4955792  | active |
 | 3cf85... | cirros-0.3.2-x86_64-uec-ramdisk | ari         | ari              | 3714968  | active |
 | 7e514... | myCirrosImage                   | ami         | ami              | 14221312 | active |
-+----------+---------------------------------+-------------+------------------+----------+--------+]]></screen>
-    <screen language="console"><![CDATA[$ glance image-show myCirrosImage
++----------+---------------------------------+-------------+------------------+----------+--------+</screen>
+    <screen language="console">$ glance image-show myCirrosImage
 +---------------------------------------+--------------------------------------+
 | Property                              | Value                                |
 +---------------------------------------+--------------------------------------+
@@ -3715,13 +3729,13 @@ commands.</para>
 | size                                  | 14221312                             |
 | status                                | active                               |
 | updated_at                            | 2013-07-22T19:46:42                  |
-+---------------------------------------+--------------------------------------+]]></screen>
++---------------------------------------+--------------------------------------+</screen>
     <para>When viewing a list of images, you can also use <literal>grep</literal> to filter the
 list, as follows:</para>
-    <screen language="console"><![CDATA[$ glance image-list | grep 'cirros'
+    <screen language="console">$ glance image-list | grep 'cirros'
 | 397e713c-b95b-4186-ad46-612... | cirros-0.3.2-x86_64-uec         | ami | ami | 25165824 | active |
 | df430cc2-3406-4061-b635-a51... | cirros-0.3.2-x86_64-uec-kernel  | aki | aki | 4955792  | active |
-| 3cf852bd-2332-48f4-9ae4-7d9... | cirros-0.3.2-x86_64-uec-ramdisk | ari | ari | 3714968  | active |]]></screen>
+| 3cf852bd-2332-48f4-9ae4-7d9... | cirros-0.3.2-x86_64-uec-ramdisk | ari | ari | 3714968  | active |</screen>
     <note>
       <para>To store location metadata for images, which enables direct file access for a client, update the <literal>/etc/glance/glance-api.conf</literal> file with the following statements:</para>
       <itemizedlist>
@@ -3734,27 +3748,27 @@ list, as follows:</para>
           <para><literal>filesystem_store_metadata_file = filePath</literal>, where filePath points to a JSON file that defines the mount point for OpenStack images on your system and a unique ID. For example:</para>
         </listitem>
       </itemizedlist>
-      <screen language="json"><![CDATA[[{
+      <screen language="json">[{
     "id": "2d9bb53f-70ea-4066-a68b-67960eaae673",
     "mountpoint": "/var/lib/glance/images/"
-}]]]></screen>
+}]</screen>
       <para>After you restart the Image service, you can use the following syntax to view the image's location information:</para>
-      <screen language="console"><![CDATA[$ glance --os-image-api-version 2 image-show imageID]]></screen>
+      <screen language="console">$ glance --os-image-api-version 2 image-show imageID</screen>
       <para>For example, using the image ID shown above, you would issue the command as follows:</para>
-      <screen language="console"><![CDATA[$ glance --os-image-api-version 2 image-show 2d9bb53f-70ea-4066-a68b-67960eaae673]]></screen>
+      <screen language="console">$ glance --os-image-api-version 2 image-show 2d9bb53f-70ea-4066-a68b-67960eaae673</screen>
     </note>
   </section>
   <section>
     <title>Create or update an image (glance)</title>
     <para>To create an image, use <command>glance image-create</command>:</para>
-    <screen language="console"><![CDATA[$ glance image-create imageName]]></screen>
+    <screen language="console">$ glance image-create imageName</screen>
     <para>To update an image by name or ID, use <command>glance image-update</command>:</para>
-    <screen language="console"><![CDATA[$ glance image-update imageName]]></screen>
+    <screen language="console">$ glance image-update imageName</screen>
     <para>The following list explains the optional arguments that you can use with
 the <literal>create</literal> and <literal>update</literal> commands to modify image properties. For
-more information, refer to Image service chapter in the <link xlink:href="http://docs.openstack.org/cli-reference/index.html">OpenStack
+more information, refer to Image service chapter in the <ulink url="http://docs.openstack.org/cli-reference/index.html">OpenStack
 Command-Line Interface
-Reference</link>.</para>
+Reference</ulink>.</para>
     <variablelist>
       <varlistentry>
         <term>
@@ -3893,8 +3907,8 @@ preserved.</para>
     </variablelist>
     <para>The following example shows the command that you would use to upload a
 CentOS 6.3 image in qcow2 format and configure it for public access:</para>
-    <screen language="console"><![CDATA[$ glance image-create --name centos63-image --disk-format qcow2 \
-  --container-format bare --is-public True --file ./centos63.qcow2]]></screen>
+    <screen language="console">$ glance image-create --name centos63-image --disk-format qcow2 \
+  --container-format bare --is-public True --file ./centos63.qcow2</screen>
     <para>The following example shows how to update an existing image with a
 properties that describe the disk bus, the CD-ROM bus, and the VIF
 model:</para>
@@ -3903,14 +3917,14 @@ model:</para>
 the <literal>vmware_disktype</literal> and <literal>vmware_adaptertype</literal> properties with
 <command>glance image-create</command>.
 Also, we recommend that you set the <literal>hypervisor_type="vmware"</literal> property.
-For more information, see <link xlink:href="http://docs.openstack.org/liberty/config-reference/content/vmware.html#VMware_images">Images with VMware vSphere</link>
+For more information, see <ulink url="http://docs.openstack.org/liberty/config-reference/content/vmware.html#VMware_images">Images with VMware vSphere</ulink>
 in the <emphasis>OpenStack Configuration Reference</emphasis>.</para>
     </note>
-    <screen language="console"><![CDATA[$ glance image-update \
+    <screen language="console">$ glance image-update \
     --property hw_disk_bus=scsi \
     --property hw_cdrom_bus=ide \
     --property hw_vif_model=e1000 \
-    f16-x86_64-openstack-sda]]></screen>
+    f16-x86_64-openstack-sda</screen>
     <para>Currently the libvirt virtualization tool determines the disk, CD-ROM,
 and VIF device models based on the configured hypervisor type
 (<literal>libvirt_type</literal> in <literal>/etc/nova/nova.conf</literal> file). For the sake of optimal
@@ -3927,7 +3941,7 @@ in the following tables.</para>
     <para>
       <emphasis role="bold">Disk and CD-ROM bus model values</emphasis>
     </para>
-    <table xml:id="disk-and-cd-rom-bus-model-values-table">
+    <table id="disk-and-cd-rom-bus-model-values-table">
       <title>Disk and CD-ROM bus model values</title>
       <tgroup cols="2">
         <colspec colwidth="49.0*"/>
@@ -3982,7 +3996,7 @@ in the following tables.</para>
     <para>
       <emphasis role="bold">VIF model values</emphasis>
     </para>
-    <table xml:id="vif-model-values-table">
+    <table id="vif-model-values-table">
       <title>VIF model values</title>
       <tgroup cols="2">
         <colspec colwidth="49.0*"/>
@@ -4112,7 +4126,7 @@ disrupting workloads.</para>
     </itemizedlist>
     <para>Migrate a volume with the <command>cinder migrate</command> command, as shown in the
 following example:</para>
-    <screen language="console"><![CDATA[$ cinder migrate volumeID destinationHost --force-host-copy True|False]]></screen>
+    <screen language="console">$ cinder migrate volumeID destinationHost --force-host-copy True|False</screen>
     <para>In this example, <option>--force-host-copy True</option> forces the generic
 host-based migration mechanism and bypasses any driver optimizations.</para>
     <note>
@@ -4128,7 +4142,7 @@ administrator, the migration fails.</para>
       <step>
         <para>List images, and note the ID of the image that you want to use for your
 volume:</para>
-        <screen language="console"><![CDATA[$ nova image-list
+        <screen language="console">$ nova image-list
 
 +-----------------------+---------------------------------+--------+--------------------------+
 | ID                    | Name                            | Status | Server                   |
@@ -4138,23 +4152,23 @@ volume:</para>
 | 3cf852bd-2332-48f4... | cirros-0.3.2-x86_64-uec-ramdisk | ACTIVE |                          |
 | 7e5142af-1253-4634... | myCirrosImage                   | ACTIVE | 84c6e57d-a6b1-44b6-81... |
 | 89bcd424-9d15-4723... | mysnapshot                      | ACTIVE | f51ebd07-c33d-4951-87... |
-+-----------------------+---------------------------------+--------+--------------------------+]]></screen>
++-----------------------+---------------------------------+--------+--------------------------+</screen>
       </step>
       <step>
         <para>List the availability zones, and note the ID of the availability zone in
 which you want to create your volume:</para>
-        <screen language="console"><![CDATA[$ cinder availability-zone-list
+        <screen language="console">$ cinder availability-zone-list
 
 +------+-----------+
 | Name |   Status  |
 +------+-----------+
 | nova | available |
-+------+-----------+]]></screen>
++------+-----------+</screen>
       </step>
       <step>
         <para>Create a volume with 8 gibibytes (GiB) of space, and specify the
 availability zone and image:</para>
-        <screen language="console"><![CDATA[$ cinder create 8 --display-name my-new-volume --image-id 397e713c-b95b-4186-ad46-6126863ea0a9 --availability-zone nova
+        <screen language="console">$ cinder create 8 --display-name my-new-volume --image-id 397e713c-b95b-4186-ad46-6126863ea0a9 --availability-zone nova
 
 
 +---------------------+--------------------------------------+
@@ -4174,19 +4188,19 @@ availability zone and image:</para>
 |     source_volid    |                 None                 |
 |        status       |               creating               |
 |     volume_type     |                 None                 |
-+---------------------+--------------------------------------+]]></screen>
++---------------------+--------------------------------------+</screen>
       </step>
       <step>
         <para>To verify that your volume was created successfully, list the available
 volumes:</para>
-        <screen language="console"><![CDATA[$ cinder list
+        <screen language="console">$ cinder list
 
 +-----------------+-----------+-----------------+------+-------------+----------+-------------+
 |    ID           |   Status  |   Display Name  | Size | Volume Type | Bootable | Attached to |
 +-----------------+-----------+-----------------+------+-------------+----------+-------------+
 | 573e024d-523... | available |  my-new-volume  |  8   |     None    |   true   |             |
 | bd7cf584-45d... | available | my-bootable-vol |  8   |     None    |   true   |             |
-+-----------------+-----------+-----------------+------+-------------+----------+-------------+]]></screen>
++-----------------+-----------+-----------------+------+-------------+----------+-------------+</screen>
         <para>If your volume was created successfully, its status is <literal>available</literal>. If
 its status is <literal>error</literal>, you might have exceeded your quota.</para>
       </step>
@@ -4198,7 +4212,7 @@ its status is <literal>error</literal>, you might have exceeded your quota.</par
       <step>
         <para>Attach your volume to a server, specifying the server ID and the volume
 ID:</para>
-        <screen language="console"><![CDATA[$ nova volume-attach 84c6e57d-a6b1-44b6-81eb-fcb36afd31b5 573e024d-5235-49ce-8332-be1576d323f8 /dev/vdb
+        <screen language="console">$ nova volume-attach 84c6e57d-a6b1-44b6-81eb-fcb36afd31b5 573e024d-5235-49ce-8332-be1576d323f8 /dev/vdb
 
 +----------+--------------------------------------+
 | Property | Value                                |
@@ -4207,16 +4221,16 @@ ID:</para>
 | serverId | 84c6e57d-a6b1-44b6-81eb-fcb36afd31b5 |
 | id       | 573e024d-5235-49ce-8332-be1576d323f8 |
 | volumeId | 573e024d-5235-49ce-8332-be1576d323f8 |
-+----------+--------------------------------------+]]></screen>
++----------+--------------------------------------+</screen>
         <para>Note the ID of your volume.</para>
       </step>
       <step>
         <para>Show information for your volume:</para>
-        <screen language="console"><![CDATA[$ cinder show 573e024d-5235-49ce-8332-be1576d323f8]]></screen>
+        <screen language="console">$ cinder show 573e024d-5235-49ce-8332-be1576d323f8</screen>
         <para>The output shows that the volume is attached to the server with ID
 <literal>84c6e57d-a6b1-44b6-81eb-fcb36afd31b5</literal>, is in the nova availability
 zone, and is bootable.</para>
-        <screen language="console"><![CDATA[+------------------------------+------------------------------------------+
+        <screen language="console">+------------------------------+------------------------------------------+
 |           Property           |                Value                     |
 +------------------------------+------------------------------------------+
 |         attachments          |         [{u'device': u'/dev/vdb',        |
@@ -4241,35 +4255,35 @@ zone, and is bootable.</para>
 |                              |        u'ramdisk_id': u'3cf852bd...,     |
 |                              |u'image_name': u'cirros-0.3.2-x86_64-uec'}|
 |         volume_type          |                  None                    |
-+------------------------------+------------------------------------------+]]></screen>
++------------------------------+------------------------------------------+</screen>
       </step>
     </procedure>
   </section>
-  <section xml:id="resize-a-volume">
+  <section id="resize-a-volume">
     <title>Resize a volume</title>
     <procedure>
       <step>
         <para>To resize your volume, you must first detach it from the server.
 To detach the volume from your server, pass the server ID and volume ID
 to the following command:</para>
-        <screen language="console"><![CDATA[$ nova volume-detach 84c6e57d-a6b1-44b6-81eb-fcb36afd31b5   573e024d-5235-49ce-8332-be1576d323f8]]></screen>
+        <screen language="console">$ nova volume-detach 84c6e57d-a6b1-44b6-81eb-fcb36afd31b5   573e024d-5235-49ce-8332-be1576d323f8</screen>
         <para>The <command>volume-detach</command> command does not return any output.</para>
       </step>
       <step>
         <para>List volumes:</para>
-        <screen language="console"><![CDATA[$ cinder list
+        <screen language="console">$ cinder list
 +----------------+-----------+-----------------+------+-------------+----------+-------------+
 |       ID       |   Status  |   Display Name  | Size | Volume Type | Bootable | Attached to |
 +----------------+-----------+-----------------+------+-------------+----------+-------------+
 | 573e024d-52... | available |  my-new-volume  |  8   |     None    |   true   |             |
 | bd7cf584-45... | available | my-bootable-vol |  8   |     None    |   true   |             |
-+----------------+-----------+-----------------+------+-------------+----------+-------------+]]></screen>
++----------------+-----------+-----------------+------+-------------+----------+-------------+</screen>
         <para>Note that the volume is now available.</para>
       </step>
       <step>
         <para>Resize the volume by passing the volume ID and the new size (a value
 greater than the old one) as parameters:</para>
-        <screen language="console"><![CDATA[$ cinder extend 573e024d-5235-49ce-8332-be1576d323f8 10]]></screen>
+        <screen language="console">$ cinder extend 573e024d-5235-49ce-8332-be1576d323f8 10</screen>
         <para>The <command>extend</command> command does not return any output.</para>
       </step>
     </procedure>
@@ -4282,27 +4296,27 @@ greater than the old one) as parameters:</para>
 To detach the volume from your server and check for the list of existing
 volumes, see steps 1 and 2 in <xref linkend="resize-a-volume"/>.</para>
         <para>Delete the volume using either the volume name or ID:</para>
-        <screen language="console"><![CDATA[$ cinder delete my-new-volume]]></screen>
+        <screen language="console">$ cinder delete my-new-volume</screen>
         <para>The <command>delete</command> command does not return any output.</para>
       </step>
       <step>
         <para>List the volumes again, and note that the status of your volume is
 <literal>deleting</literal>:</para>
-        <screen language="console"><![CDATA[$ cinder list
+        <screen language="console">$ cinder list
 +-----------------+-----------+-----------------+------+-------------+----------+-------------+
 |        ID       |   Status  |   Display Name  | Size | Volume Type | Bootable | Attached to |
 +-----------------+-----------+-----------------+------+-------------+----------+-------------+
 | 573e024d-523... |  deleting |  my-new-volume  |  8   |     None    |   true   |             |
 | bd7cf584-45d... | available | my-bootable-vol |  8   |     None    |   true   |             |
-+-----------------+-----------+-----------------+------+-------------+----------+-------------+]]></screen>
++-----------------+-----------+-----------------+------+-------------+----------+-------------+</screen>
         <para>When the volume is fully deleted, it disappears from the list of
 volumes:</para>
-        <screen language="console"><![CDATA[$ cinder list
+        <screen language="console">$ cinder list
 +-----------------+-----------+-----------------+------+-------------+----------+-------------+
 |       ID        |   Status  |   Display Name  | Size | Volume Type | Bootable | Attached to |
 +-----------------+-----------+-----------------+------+-------------+----------+-------------+
 | bd7cf584-45d... | available | my-bootable-vol |  8   |     None    |   true   |             |
-+-----------------+-----------+-----------------+------+-------------+----------+-------------+]]></screen>
++-----------------+-----------+-----------------+------+-------------+----------+-------------+</screen>
       </step>
     </procedure>
   </section>
@@ -4334,26 +4348,26 @@ transfers device ownership to the end user.</para>
       <procedure>
         <step>
           <para>While logged in as the volume donor, list the available volumes:</para>
-          <screen language="console"><![CDATA[$ cinder list
+          <screen language="console">$ cinder list
 +-----------------+-----------+--------------+------+-------------+----------+-------------+
 |        ID       |   Status  | Display Name | Size | Volume Type | Bootable | Attached to |
 +-----------------+-----------+--------------+------+-------------+----------+-------------+
 | 72bfce9f-cac... |   error   |     None     |  1   |     None    |  false   |             |
 | a1cdace0-08e... | available |     None     |  1   |     None    |  false   |             |
-+-----------------+-----------+--------------+------+-------------+----------+-------------+]]></screen>
++-----------------+-----------+--------------+------+-------------+----------+-------------+</screen>
         </step>
         <step>
           <para>As the volume donor, request a volume transfer authorization code for a
 specific volume:</para>
-          <screen language="console"><![CDATA[$ cinder transfer-create volumeID]]></screen>
+          <screen language="console">$ cinder transfer-create volumeID</screen>
           <para>The volume must be in an <literal>available</literal> state or the request will be
 denied. If the transfer request is valid in the database (that is, it
 has not expired or been deleted), the volume is placed in an
 <literal>awaiting transfer</literal> state. For example:</para>
-          <screen language="console"><![CDATA[$ cinder transfer-create a1cdace0-08e4-4dc7-b9dc-457e9bcfe25f]]></screen>
+          <screen language="console">$ cinder transfer-create a1cdace0-08e4-4dc7-b9dc-457e9bcfe25f</screen>
           <para>The output shows the volume transfer ID in the <literal>id</literal> row and the
 authorization key.</para>
-          <screen language="console"><![CDATA[+------------+--------------------------------------+
+          <screen language="console">+------------+--------------------------------------+
 |  Property  |                Value                 |
 +------------+--------------------------------------+
 |  auth_key  |           b2c8e585cbc68a80           |
@@ -4361,7 +4375,7 @@ authorization key.</para>
 |     id     | 6e4e9aa4-bed5-4f94-8f76-df43232f44dc |
 |    name    |                 None                 |
 | volume_id  | a1cdace0-08e4-4dc7-b9dc-457e9bcfe25f |
-+------------+--------------------------------------+]]></screen>
++------------+--------------------------------------+</screen>
           <note>
             <para>Optionally, you can specify a name for the transfer by using the
 <literal>--display-name displayName</literal> parameter.</para>
@@ -4378,21 +4392,21 @@ example, by email).</para>
         </step>
         <step>
           <para>View pending transfers:</para>
-          <screen language="console"><![CDATA[$ cinder transfer-list
+          <screen language="console">$ cinder transfer-list
 +--------------------------------------+--------------------------------------+------+
 |               ID                     |             VolumeID                 | Name |
 +--------------------------------------+--------------------------------------+------+
 | 6e4e9aa4-bed5-4f94-8f76-df43232f44dc | a1cdace0-08e4-4dc7-b9dc-457e9bcfe25f | None |
-+--------------------------------------+--------------------------------------+------+]]></screen>
++--------------------------------------+--------------------------------------+------+</screen>
         </step>
         <step>
           <para>After the volume recipient, or new owner, accepts the transfer, you can
 see that the transfer is no longer available:</para>
-          <screen language="console"><![CDATA[$ cinder transfer-list
+          <screen language="console">$ cinder transfer-list
 +----+-----------+------+
 | ID | Volume ID | Name |
 +----+-----------+------+
-+----+-----------+------+]]></screen>
++----+-----------+------+</screen>
         </step>
       </procedure>
     </section>
@@ -4405,16 +4419,16 @@ authorization key from the original owner.</para>
         </step>
         <step>
           <para>Accept the request:</para>
-          <screen language="console"><![CDATA[$ cinder transfer-accept transferID authKey]]></screen>
+          <screen language="console">$ cinder transfer-accept transferID authKey</screen>
           <para>For example:</para>
-          <screen language="console"><![CDATA[$ cinder transfer-accept 6e4e9aa4-bed5-4f94-8f76-df43232f44dc   b2c8e585cbc68a80
+          <screen language="console">$ cinder transfer-accept 6e4e9aa4-bed5-4f94-8f76-df43232f44dc   b2c8e585cbc68a80
 +-----------+--------------------------------------+
 |  Property |                Value                 |
 +-----------+--------------------------------------+
 |     id    | 6e4e9aa4-bed5-4f94-8f76-df43232f44dc |
 |    name   |                 None                 |
 | volume_id | a1cdace0-08e4-4dc7-b9dc-457e9bcfe25f |
-+-----------+--------------------------------------+]]></screen>
++-----------+--------------------------------------+</screen>
           <note>
             <para>If you do not have a sufficient quota for the transfer, the transfer
 is refused.</para>
@@ -4427,44 +4441,44 @@ is refused.</para>
       <procedure>
         <step>
           <para>List available volumes and their statuses:</para>
-          <screen language="console"><![CDATA[$ cinder list
+          <screen language="console">$ cinder list
 +-------------+-----------------+--------------+------+-------------+----------+-------------+
 |     ID      |      Status     | Display Name | Size | Volume Type | Bootable | Attached to |
 +-------------+-----------------+--------------+------+-------------+----------+-------------+
 | 72bfce9f... |      error      |     None     |  1   |     None    |  false   |             |
 | a1cdace0... |awaiting-transfer|     None     |  1   |     None    |  false   |             |
-+-------------+-----------------+--------------+------+-------------+----------+-------------+]]></screen>
++-------------+-----------------+--------------+------+-------------+----------+-------------+</screen>
         </step>
         <step>
           <para>Find the matching transfer ID:</para>
-          <screen language="console"><![CDATA[$ cinder transfer-list
+          <screen language="console">$ cinder transfer-list
 +--------------------------------------+--------------------------------------+------+
 |               ID                     |             VolumeID                 | Name |
 +--------------------------------------+--------------------------------------+------+
 | a6da6888-7cdf-4291-9c08-8c1f22426b8a | a1cdace0-08e4-4dc7-b9dc-457e9bcfe25f | None |
-+--------------------------------------+--------------------------------------+------+]]></screen>
++--------------------------------------+--------------------------------------+------+</screen>
         </step>
         <step>
           <para>Delete the volume:</para>
-          <screen language="console"><![CDATA[$ cinder transfer-delete transferID]]></screen>
+          <screen language="console">$ cinder transfer-delete transferID</screen>
           <para>For example:</para>
-          <screen language="console"><![CDATA[$ cinder transfer-delete a6da6888-7cdf-4291-9c08-8c1f22426b8a]]></screen>
+          <screen language="console">$ cinder transfer-delete a6da6888-7cdf-4291-9c08-8c1f22426b8a</screen>
         </step>
         <step>
           <para>Verify that transfer list is now empty and that the volume is again
 available for transfer:</para>
-          <screen language="console"><![CDATA[$ cinder transfer-list
+          <screen language="console">$ cinder transfer-list
 +----+-----------+------+
 | ID | Volume ID | Name |
 +----+-----------+------+
-+----+-----------+------+]]></screen>
-          <screen language="console"><![CDATA[$ cinder list
++----+-----------+------+</screen>
+          <screen language="console">$ cinder list
 +-----------------+-----------+--------------+------+-------------+----------+-------------+
 |       ID        |   Status  | Display Name | Size | Volume Type | Bootable | Attached to |
 +-----------------+-----------+--------------+------+-------------+----------+-------------+
 | 72bfce9f-ca...  |   error   |     None     |  1   |     None    |  false   |             |
 | a1cdace0-08...  | available |     None     |  1   |     None    |  false   |             |
-+-----------------+-----------+--------------+------+-------------+----------+-------------+]]></screen>
++-----------------+-----------+--------------+------+-------------+----------+-------------+</screen>
         </step>
       </procedure>
     </section>
@@ -4494,7 +4508,7 @@ disrupting workloads.</para>
     </itemizedlist>
     <para>Migrate a share with the <command>manila migrate</command> command, as shown in the
 following example:</para>
-    <screen language="console"><![CDATA[$ manila migrate shareID destinationHost --force-host-copy True|False]]></screen>
+    <screen language="console">$ manila migrate shareID destinationHost --force-host-copy True|False</screen>
     <para>In this example, <option>--force-host-copy True</option> forces the generic
 host-based migration mechanism and bypasses any driver optimizations.
 <literal>destinationHost</literal> is in this format <literal>host#pool</literal> which includes
@@ -4514,7 +4528,7 @@ that can be launched.</para>
   <note>
     <para>Flavors can also determine on which compute host a flavor
 can be used to launch an instance. For information
-about customizing flavors, refer to the <link xlink:href="http://docs.openstack.org/admin-guide-cloud/compute-flavors.html">OpenStack Cloud Administrator Guide</link>.</para>
+about customizing flavors, refer to the <ulink url="http://docs.openstack.org/admin-guide-cloud/compute-flavors.html">OpenStack Cloud Administrator Guide</ulink>.</para>
   </note>
   <para>A flavor consists of the following parameters:</para>
   <variablelist>
@@ -4680,13 +4694,13 @@ of memory, the amount of disk space for the root
 partition and for the ephemeral partition, the
 swap, and the number of virtual CPUs for each
 flavor:</para>
-        <screen language="console"><![CDATA[$ nova flavor-list]]></screen>
+        <screen language="console">$ nova flavor-list</screen>
       </step>
       <step>
         <para>To create a flavor, specify a name, ID, RAM
 size, disk size, and the number of VCPUs for the
 flavor, as follows:</para>
-        <screen language="console"><![CDATA[$ nova flavor-create FLAVOR_NAME FLAVOR_ID RAM_IN_MB ROOT_DISK_IN_GB NUMBER_OF_VCPUS]]></screen>
+        <screen language="console">$ nova flavor-create FLAVOR_NAME FLAVOR_ID RAM_IN_MB ROOT_DISK_IN_GB NUMBER_OF_VCPUS</screen>
         <note>
           <para>Unique ID (integer or UUID) for the new flavor. If
 specifying 'auto', a UUID will be automatically generated.</para>
@@ -4699,21 +4713,21 @@ one VCPU. The rxtx-factor indicates the slice of
 bandwidth that the instances with this flavor can
 use (through the Virtual Interface (vif) creation
 in the hypervisor):</para>
-        <screen language="console"><![CDATA[$ nova flavor-create --is-public true m1.extra_tiny auto 256 0 1 --rxtx-factor .1]]></screen>
+        <screen language="console">$ nova flavor-create --is-public true m1.extra_tiny auto 256 0 1 --rxtx-factor .1</screen>
       </step>
       <step>
         <para>If an individual user or group of users needs a custom
 flavor that you do not want other tenants to have access to,
 you can change the flavor's access to make it a private flavor.
-See <link xlink:href="http://docs.openstack.org/openstack-ops/content/private-flavors.html">Private Flavors in the OpenStack Operations Guide</link>.</para>
+See <ulink url="http://docs.openstack.org/openstack-ops/content/private-flavors.html">Private Flavors in the OpenStack Operations Guide</ulink>.</para>
         <para>For a list of optional parameters, run this command:</para>
-        <screen language="console"><![CDATA[$ nova help flavor-create]]></screen>
+        <screen language="console">$ nova help flavor-create</screen>
       </step>
       <step>
         <para>After you create a flavor, assign it to a
 project by specifying the flavor name or ID and
 the tenant ID:</para>
-        <screen language="console"><![CDATA[$ nova flavor-access-add FLAVOR TENANT_ID]]></screen>
+        <screen language="console">$ nova flavor-access-add FLAVOR TENANT_ID</screen>
       </step>
       <step>
         <para>In addition, you can set or unset <literal>extra_spec</literal> for the existing flavor.
@@ -4725,16 +4739,16 @@ aspects that can work for an instance including <literal>CPU limits</literal>,
 <literal>Disk tuning</literal>, <literal>Bandwidth I/O</literal>, <literal>Watchdog behavior</literal>, and
 <literal>Random-number generator</literal>.
 For information about supporting metadata keys, see the
-<link xlink:href="http://docs.openstack.org/admin-guide-cloud/compute-flavors.html">OpenStack Cloud Administrator Guide</link>.</para>
+<ulink url="http://docs.openstack.org/admin-guide-cloud/compute-flavors.html">OpenStack Cloud Administrator Guide</ulink>.</para>
         <para>For a list of optional parameters, run this command:</para>
-        <screen language="console"><![CDATA[$ nova help flavor-key]]></screen>
+        <screen language="console">$ nova help flavor-key</screen>
       </step>
     </procedure>
   </section>
   <section>
     <title>Delete a flavor</title>
     <para>Delete a specified flavor, as follows:</para>
-    <screen language="console"><![CDATA[$ nova flavor-delete FLAVOR_ID]]></screen>
+    <screen language="console">$ nova flavor-delete FLAVOR_ID</screen>
   </section>
 </section>
 <section><title>Manage the OpenStack environment</title><para>This section includes tasks specific to the OpenStack environment.</para><section>
@@ -4748,7 +4762,7 @@ on this host.</para>
 the <option>--availability_zone ZONE:HOST</option> parameter on the
 <command>nova boot</command> command.</para>
       <para>For example:</para>
-      <screen language="console"><![CDATA[$ nova boot --image <uuid> --flavor m1.tiny --key_name test --availability-zone nova:server2]]></screen>
+      <screen language="console">$ nova boot --image &lt;uuid&gt; --flavor m1.tiny --key_name test --availability-zone nova:server2</screen>
     </step>
     <step>
       <para>To specify which roles can launch an instance on a
@@ -4759,14 +4773,14 @@ enabled for only the admin role.</para>
     <step>
       <para>To view the list of valid compute hosts, use the
 <command>nova hypervisor-list</command> command.</para>
-      <screen language="console"><![CDATA[$ nova hypervisor-list
+      <screen language="console">$ nova hypervisor-list
 +----+---------------------+
 | ID | Hypervisor hostname |
 +----+---------------------+
 | 1  | server2             |
 | 2  | server3             |
 | 3  | server4             |
-+----+---------------------+]]></screen>
++----+---------------------+</screen>
     </step>
   </procedure>
 </section>
@@ -4803,7 +4817,7 @@ current VM host is not operational. Otherwise, the evacuation fails.</para>
   <procedure>
     <step>
       <para>To find a host for the evacuated instance, list all hosts:</para>
-      <screen language="console"><![CDATA[$ nova host-list]]></screen>
+      <screen language="console">$ nova host-list</screen>
     </step>
     <step>
       <para>Evacuate the instance. You can use the <option>--password PWD</option> option
@@ -4811,23 +4825,23 @@ to pass the instance password to the command. If you do not specify a
 password, the command generates and prints one after it finishes
 successfully. The following command evacuates a server from a failed host
 to HOST_B.</para>
-      <screen language="console"><![CDATA[$ nova evacuate EVACUATED_SERVER_NAME HOST_B]]></screen>
+      <screen language="console">$ nova evacuate EVACUATED_SERVER_NAME HOST_B</screen>
       <para>The command rebuilds the instance from the original image or volume and
 returns a password. The comamnd preserves the original configuration, which
 includes the instance ID, name, uid, IP address, and so on.</para>
-      <screen language="console"><![CDATA[+-----------+--------------+
+      <screen language="console">+-----------+--------------+
 | Property  |    Value     |
 +-----------+--------------+
 | adminPass | kRAJpErnT4xZ |
-+-----------+--------------+]]></screen>
++-----------+--------------+</screen>
     </step>
     <step>
       <para>To preserve the user disk data on the evacuated server, deploy Compute
 with a shared file system. To configure your system, see
-<link xlink:href="http://docs.openstack.org/admin-guide-cloud/compute-configuring-migrations.html">Configure migrations</link>
+<ulink url="http://docs.openstack.org/admin-guide-cloud/compute-configuring-migrations.html">Configure migrations</ulink>
 in the <literal>OpenStack Cloud Administrator Guide</literal>. The
 following example does not change the password.</para>
-      <screen language="console"><![CDATA[$ nova evacuate EVACUATED_SERVER_NAME HOST_B --on-shared-storage]]></screen>
+      <screen language="console">$ nova evacuate EVACUATED_SERVER_NAME HOST_B --on-shared-storage</screen>
     </step>
   </procedure>
 </section>
@@ -4841,20 +4855,20 @@ target host.</para>
   <procedure>
     <step>
       <para>To list the VMs you want to migrate, run:</para>
-      <screen language="console"><![CDATA[$ nova list]]></screen>
+      <screen language="console">$ nova list</screen>
     </step>
     <step>
       <para>After selecting a VM from the list, run this command where <guilabel>VM_ID</guilabel>
 is set to the ID in the list returned in the previous step:</para>
-      <screen language="console"><![CDATA[$ nova show VM_ID]]></screen>
+      <screen language="console">$ nova show VM_ID</screen>
     </step>
     <step>
       <para>Now, use the <command>nova migrate</command> command.</para>
-      <screen language="console"><![CDATA[$ nova migrate VM_ID]]></screen>
+      <screen language="console">$ nova migrate VM_ID</screen>
     </step>
     <step>
       <para>To migrate an instance and watch the status, use this example script:</para>
-      <screen language="bash"><![CDATA[#!/bin/bash
+      <screen language="bash">#!/bin/bash
 
 # Provide usage
 usage() {
@@ -4862,7 +4876,7 @@ echo "Usage: $0 VM_ID"
 exit 1
 }
 
-[[ $# -eq 0 ]] && usage
+[[ $# -eq 0 ]] &amp;&amp; usage
 
 # Migrate the VM to an alternate hypervisor
 echo -n "Migrating instance to alternate host"
@@ -4885,7 +4899,7 @@ echo "Updated instance details:"
 nova show $VM_ID
 
 # Pause to allow users to examine VM details
-read -p "Pausing, press <enter> to exit."]]></screen>
+read -p "Pausing, press &lt;enter&gt; to exit."</screen>
     </step>
   </procedure>
   <note>
@@ -4914,11 +4928,11 @@ Internet.</para>
 addresses with projects and instances. You can change user permissions for
 managing IP addresses by updating the <literal>/etc/nova/policy.json</literal>
 file. For basic floating-IP procedures, refer to the <literal>Manage IP
-Addresses</literal> section in the <link xlink:href="http://docs.openstack.org/user-guide/">OpenStack End User Guide</link>.</para>
+Addresses</literal> section in the <ulink url="http://docs.openstack.org/user-guide/">OpenStack End User Guide</ulink>.</para>
     </listitem>
     <listitem>
       <para>For details on creating public networks using OpenStack Networking
-(<literal>neutron</literal>), refer to the <link xlink:href="http://docs.openstack.org/admin-guide-cloud/networking_adv-features.html">OpenStack Cloud Administrator Guide</link>
+(<literal>neutron</literal>), refer to the <ulink url="http://docs.openstack.org/admin-guide-cloud/networking_adv-features.html">OpenStack Cloud Administrator Guide</ulink>
 . No floating IP addresses are created by default in OpenStack Networking.</para>
     </listitem>
   </itemizedlist>
@@ -4929,7 +4943,7 @@ instances by end users.</para>
   <section>
     <title>List addresses for all projects</title>
     <para>To list all floating IP addresses for all projects, run:</para>
-    <screen language="console"><![CDATA[$ nova floating-ip-bulk-list
+    <screen language="console">$ nova floating-ip-bulk-list
 +------------+---------------+---------------+--------+-----------+
 | project_id | address       | instance_uuid | pool   | interface |
 +------------+---------------+---------------+--------+-----------+
@@ -4953,14 +4967,14 @@ instances by end users.</para>
 | None       | 192.168.253.4 | None          | test   | eth0      |
 | None       | 192.168.253.5 | None          | test   | eth0      |
 | None       | 192.168.253.6 | None          | test   | eth0      |
-+------------+---------------+---------------+--------+-----------+]]></screen>
++------------+---------------+---------------+--------+-----------+</screen>
   </section>
   <section>
     <title>Bulk create floating IP addresses</title>
     <para>To create a range of floating IP addresses, run:</para>
-    <screen language="console"><![CDATA[$ nova floating-ip-bulk-create [--pool POOL_NAME] [--interface INTERFACE] RANGE_TO_CREATE]]></screen>
+    <screen language="console">$ nova floating-ip-bulk-create [--pool POOL_NAME] [--interface INTERFACE] RANGE_TO_CREATE</screen>
     <para>For example:</para>
-    <screen language="console"><![CDATA[$ nova floating-ip-bulk-create --pool test 192.168.1.56/29]]></screen>
+    <screen language="console">$ nova floating-ip-bulk-create --pool test 192.168.1.56/29</screen>
     <para>By default, <literal>floating-ip-bulk-create</literal> uses the
 <literal>public</literal> pool and <literal>eth0</literal> interface values.</para>
     <note>
@@ -4985,9 +4999,9 @@ range is currently unused.</para>
   <section>
     <title>Bulk delete floating IP addresses</title>
     <para>To delete a range of floating IP addresses, run:</para>
-    <screen language="console"><![CDATA[$ nova floating-ip-bulk-delete RANGE_TO_DELETE]]></screen>
+    <screen language="console">$ nova floating-ip-bulk-delete RANGE_TO_DELETE</screen>
     <para>For example:</para>
-    <screen language="console"><![CDATA[$ nova floating-ip-bulk-delete 192.168.1.56/29]]></screen>
+    <screen language="console">$ nova floating-ip-bulk-delete 192.168.1.56/29</screen>
   </section>
 </section>
 <section>
@@ -5008,27 +5022,27 @@ high availability.</para>
   <itemizedlist>
     <listitem>
       <para>basic creation and deletion of Orchestration stacks, refer
-to the <link xlink:href="http://docs.openstack.org/user-guide/dashboard_stacks.html">OpenStack End User Guide</link></para>
+to the <ulink url="http://docs.openstack.org/user-guide/dashboard_stacks.html">OpenStack End User Guide</ulink></para>
     </listitem>
     <listitem>
-      <para><emphasis role="bold">heat</emphasis> CLI commands, see the <link xlink:href="http://docs.openstack.org/cli-reference/heat.html">OpenStack Command Line Interface Reference</link></para>
+      <para><emphasis role="bold">heat</emphasis> CLI commands, see the <ulink url="http://docs.openstack.org/cli-reference/heat.html">OpenStack Command Line Interface Reference</ulink></para>
     </listitem>
   </itemizedlist>
   <para>As an administrator, you can also carry out stack functions
 on behalf of your users. For example, to resume, suspend,
 or delete a stack, run:</para>
-  <screen language="console"><![CDATA[$ heat action-resume stackID
+  <screen language="console">$ heat action-resume stackID
 $ heat action-suspend stackID
-$ heat stack-delete stackID]]></screen>
+$ heat stack-delete stackID</screen>
 </section>
 <section xml:base="common/nova_show_usage_statistics_for_hosts_instances.xml">
   <title>Show usage statistics for hosts and instances</title>
   <para>You can show basic statistics on resource usage for hosts and instances.</para>
   <note>
     <para>For more sophisticated monitoring, see the
-<link xlink:href="https://launchpad.net/ceilometer">ceilometer</link> project. You can
-also use tools, such as <link xlink:href="http://ganglia.info/">Ganglia</link> or
-<link xlink:href="http://graphite.wikidot.com/">Graphite</link>, to gather more detailed
+<ulink url="https://launchpad.net/ceilometer">ceilometer</ulink> project. You can
+also use tools, such as <ulink url="http://ganglia.info/">Ganglia</ulink> or
+<ulink url="http://graphite.wikidot.com/">Graphite</ulink>, to gather more detailed
 data.</para>
   </note>
   <section>
@@ -5038,7 +5052,7 @@ data.</para>
     <itemizedlist>
       <listitem>
         <para>List the hosts and the nova-related services that run on them:</para>
-        <screen language="console"><![CDATA[$ nova host-list
+        <screen language="console">$ nova host-list
 +-----------+-------------+----------+
 | host_name | service     | zone     |
 +-----------+-------------+----------+
@@ -5048,12 +5062,12 @@ data.</para>
 | devstack  | network     | internal |
 | devstack  | scheduler   | internal |
 | devstack  | consoleauth | internal |
-+-----------+-------------+----------+]]></screen>
++-----------+-------------+----------+</screen>
       </listitem>
       <listitem>
         <para>Get a summary of resource usage of all of the instances running on
 the host:</para>
-        <screen language="console"><![CDATA[$ nova host-describe devstack
+        <screen language="console">$ nova host-describe devstack
 +----------+----------------------------------+-----+-----------+---------+
 | HOST     | PROJECT                          | cpu | memory_mb | disk_gb |
 +----------+----------------------------------+-----+-----------+---------+
@@ -5062,7 +5076,7 @@ the host:</para>
 | devstack | (used_max)                       | 3   | 4608      | 40      |
 | devstack | b70d90d65e464582b6b2161cf3603ced | 1   | 512       | 0       |
 | devstack | 66265572db174a7aa66eba661f58eb9e | 2   | 4096      | 40      |
-+----------+----------------------------------+-----+-----------+---------+]]></screen>
++----------+----------------------------------+-----+-----------+---------+</screen>
         <para>The <literal>cpu</literal> column shows the sum of the virtual CPUs for instances
 running on the host.</para>
         <para>The <literal>memory_mb</literal> column shows the sum of the memory (in MB)
@@ -5092,17 +5106,17 @@ CPU usage, memory usage, or hard disk usage of the physical host.</para>
         <procedure>
           <step>
             <para>List instances:</para>
-            <screen language="console"><![CDATA[$ nova list
+            <screen language="console">$ nova list
 +----------+----------------------+--------+------------+-------------+------------------+
 | ID       | Name                 | Status | Task State | Power State | Networks         |
 +----------+----------------------+--------+------------+-------------+------------------+
 | 84c6e... | myCirrosServer       | ACTIVE | None       | Running     | private=10.0.0.3 |
 | 8a995... | myInstanceFromVolume | ACTIVE | None       | Running     | private=10.0.0.4 |
-+----------+----------------------+--------+------------+-------------+------------------+]]></screen>
++----------+----------------------+--------+------------+-------------+------------------+</screen>
           </step>
           <step>
             <para>Get diagnostic statistics:</para>
-            <screen language="console"><![CDATA[$ nova diagnostics myCirrosServer
+            <screen language="console">$ nova diagnostics myCirrosServer
 +------------------+----------------+
 | Property         | Value          |
 +------------------+----------------+
@@ -5121,20 +5135,20 @@ CPU usage, memory usage, or hard disk usage of the physical host.</para>
 | vnet1_rx_packets | 5485           |
 | vda_read_req     | 0              |
 | vda_errors       | -1             |
-+------------------+----------------+]]></screen>
++------------------+----------------+</screen>
           </step>
         </procedure>
       </listitem>
       <listitem>
         <para>Get summary statistics for each tenant:</para>
-        <screen language="console"><![CDATA[$ nova usage-list
+        <screen language="console">$ nova usage-list
 Usage from 2013-06-25 to 2013-07-24:
 +----------------------------------+-----------+--------------+-----------+---------------+
 | Tenant ID                        | Instances | RAM MB-Hours | CPU Hours | Disk GB-Hours |
 +----------------------------------+-----------+--------------+-----------+---------------+
 | b70d90d65e464582b6b2161cf3603ced | 1         | 344064.44    | 672.00    | 0.00          |
 | 66265572db174a7aa66eba661f58eb9e | 3         | 671626.76    | 327.94    | 6558.86       |
-+----------------------------------+-----------+--------------+-----------+---------------+]]></screen>
++----------------------------------+-----------+--------------+-----------+---------------+</screen>
       </listitem>
     </itemizedlist>
   </section>
@@ -5149,7 +5163,7 @@ and the tenant-user level.</para><para>Using the command-line interface, you can
 the OpenStack Compute service, the OpenStack Block Storage service,
 and the OpenStack Networking service.</para><para>The cloud operator typically changes default values because a
 tenant requires more than ten volumes or 1 TB on a compute
-node.</para><note><para>To view all tenants (projects), run:</para><screen language="console"><![CDATA[$ openstack project list
+node.</para><note><para>To view all tenants (projects), run:</para><screen language="console">$ openstack project list
 +----------------------------------+----------+
 | ID                               | Name     |
 +----------------------------------+----------+
@@ -5157,13 +5171,13 @@ node.</para><note><para>To view all tenants (projects), run:</para><screen langu
 | bf4a37b885fe46bd86e999e50adad1d3 | services |
 | 21bd1c7c95234fd28f589b60903606fa | tenant01 |
 | f599c5cd1cba4125ae3d7caed08e288c | tenant02 |
-+----------------------------------+----------+]]></screen><para>To display all current users for a tenant, run:</para><screen language="console"><![CDATA[$ openstack user list --project PROJECT_NAME
++----------------------------------+----------+</screen><para>To display all current users for a tenant, run:</para><screen language="console">$ openstack user list --project PROJECT_NAME
 +----------------------------------+--------+
 | ID                               | Name   |
 +----------------------------------+--------+
 | ea30aa434ab24a139b0e85125ec8a217 | demo00 |
 | 4f8113c1d838467cad0c2f337b3dfded | demo01 |
-+----------------------------------+--------+]]></screen></note><section>
++----------------------------------+--------+</screen></note><section>
   <title>Manage Compute service quotas</title>
   <para>As an administrative user, you can use the <command>nova quota-*</command>
 commands, which are provided by the <literal>python-novaclient</literal>
@@ -5296,9 +5310,9 @@ instances.</para>
       <procedure>
         <step>
           <para>List all default quotas for all tenants:</para>
-          <screen language="console"><![CDATA[$ nova quota-defaults]]></screen>
+          <screen language="console">$ nova quota-defaults</screen>
           <para>For example:</para>
-          <screen language="console"><![CDATA[$ nova quota-defaults
+          <screen language="console">$ nova quota-defaults
 +-----------------------------+-------+
 | Quota                       | Limit |
 +-----------------------------+-------+
@@ -5314,13 +5328,13 @@ instances.</para>
 | key_pairs                   | 100   |
 | security_groups             | 10    |
 | security_group_rules        | 20    |
-+-----------------------------+-------+]]></screen>
++-----------------------------+-------+</screen>
         </step>
         <step>
           <para>Update a default value for a new tenant.</para>
-          <screen language="console"><![CDATA[$ nova quota-class-update --KEY VALUE default]]></screen>
+          <screen language="console">$ nova quota-class-update --KEY VALUE default</screen>
           <para>For example:</para>
-          <screen language="console"><![CDATA[$ nova quota-class-update --instances 15 default]]></screen>
+          <screen language="console">$ nova quota-class-update --instances 15 default</screen>
         </step>
       </procedure>
     </section>
@@ -5329,13 +5343,13 @@ instances.</para>
       <procedure>
         <step>
           <para>Place the tenant ID in a usable variable.</para>
-          <screen language="console"><![CDATA[$ tenant=$(openstack project show -f value -c id TENANT_NAME)]]></screen>
+          <screen language="console">$ tenant=$(openstack project show -f value -c id TENANT_NAME)</screen>
         </step>
         <step>
           <para>List the currently set quota values for a tenant.</para>
-          <screen language="console"><![CDATA[$ nova quota-show --tenant $tenant]]></screen>
+          <screen language="console">$ nova quota-show --tenant $tenant</screen>
           <para>For example:</para>
-          <screen language="console"><![CDATA[$ nova quota-show --tenant $tenant
+          <screen language="console">$ nova quota-show --tenant $tenant
 +-----------------------------+-------+
 | Quota                       | Limit |
 +-----------------------------+-------+
@@ -5351,7 +5365,7 @@ instances.</para>
 | key_pairs                   | 100   |
 | security_groups             | 10    |
 | security_group_rules        | 20    |
-+-----------------------------+-------+]]></screen>
++-----------------------------+-------+</screen>
         </step>
       </procedure>
     </section>
@@ -5360,13 +5374,13 @@ instances.</para>
       <procedure>
         <step>
           <para>Obtain the tenant ID.</para>
-          <screen language="console"><![CDATA[$ tenant=$(openstack project show -f value -c id TENANT_NAME)]]></screen>
+          <screen language="console">$ tenant=$(openstack project show -f value -c id TENANT_NAME)</screen>
         </step>
         <step>
           <para>Update a particular quota value.</para>
-          <screen language="console"><![CDATA[$ nova quota-update --QUOTA_NAME QUOTA_VALUE TENANT_ID]]></screen>
+          <screen language="console">$ nova quota-update --QUOTA_NAME QUOTA_VALUE TENANT_ID</screen>
           <para>For example:</para>
-          <screen language="console"><![CDATA[$ nova quota-update --floating-ips 20 $tenant
+          <screen language="console">$ nova quota-update --floating-ips 20 $tenant
 $ nova quota-show --tenant $tenant
 +-----------------------------+-------+
 | Quota                       | Limit |
@@ -5383,10 +5397,10 @@ $ nova quota-show --tenant $tenant
 | key_pairs                   | 100   |
 | security_groups             | 10    |
 | security_group_rules        | 20    |
-+-----------------------------+-------+]]></screen>
++-----------------------------+-------+</screen>
           <note>
             <para>To view a list of options for the <command>quota-update</command> command, run:</para>
-            <screen language="console"><![CDATA[$ nova help quota-update]]></screen>
+            <screen language="console">$ nova help quota-update</screen>
           </note>
         </step>
       </procedure>
@@ -5399,17 +5413,17 @@ $ nova quota-show --tenant $tenant
       <procedure>
         <step>
           <para>Place the user ID in a usable variable.</para>
-          <screen language="console"><![CDATA[$ tenantUser=$(openstack user show -f value -c id USER_NAME)]]></screen>
+          <screen language="console">$ tenantUser=$(openstack user show -f value -c id USER_NAME)</screen>
         </step>
         <step>
           <para>Place the user's tenant ID in a usable variable, as follows:</para>
-          <screen language="console"><![CDATA[$ tenant=$(openstack project show -f value -c id TENANT_NAME)]]></screen>
+          <screen language="console">$ tenant=$(openstack project show -f value -c id TENANT_NAME)</screen>
         </step>
         <step>
           <para>List the currently set quota values for a tenant user.</para>
-          <screen language="console"><![CDATA[$ nova quota-show --user $tenantUser --tenant $tenant]]></screen>
+          <screen language="console">$ nova quota-show --user $tenantUser --tenant $tenant</screen>
           <para>For example:</para>
-          <screen language="console"><![CDATA[$ nova quota-show --user $tenantUser --tenant $tenant
+          <screen language="console">$ nova quota-show --user $tenantUser --tenant $tenant
 +-----------------------------+-------+
 | Quota                       | Limit |
 +-----------------------------+-------+
@@ -5425,7 +5439,7 @@ $ nova quota-show --tenant $tenant
 | key_pairs                   | 100   |
 | security_groups             | 10    |
 | security_group_rules        | 20    |
-+-----------------------------+-------+]]></screen>
++-----------------------------+-------+</screen>
         </step>
       </procedure>
     </section>
@@ -5434,17 +5448,17 @@ $ nova quota-show --tenant $tenant
       <procedure>
         <step>
           <para>Place the user ID in a usable variable.</para>
-          <screen language="console"><![CDATA[$ tenantUser=$(openstack user show -f value -c id USER_NAME)]]></screen>
+          <screen language="console">$ tenantUser=$(openstack user show -f value -c id USER_NAME)</screen>
         </step>
         <step>
           <para>Place the user's tenant ID in a usable variable, as follows:</para>
-          <screen language="console"><![CDATA[$ tenant=$(openstack project show -f value -c id TENANT_NAME)]]></screen>
+          <screen language="console">$ tenant=$(openstack project show -f value -c id TENANT_NAME)</screen>
         </step>
         <step>
           <para>Update a particular quota value, as follows:</para>
-          <screen language="console"><![CDATA[$ nova quota-update  --user $tenantUser --QUOTA_NAME QUOTA_VALUE $tenant]]></screen>
+          <screen language="console">$ nova quota-update  --user $tenantUser --QUOTA_NAME QUOTA_VALUE $tenant</screen>
           <para>For example:</para>
-          <screen language="console"><![CDATA[$ nova quota-update --user $tenantUser --floating-ips 12 $tenant
+          <screen language="console">$ nova quota-update --user $tenantUser --floating-ips 12 $tenant
 $ nova quota-show --user $tenantUser --tenant $tenant
 +-----------------------------+-------+
 | Quota                       | Limit |
@@ -5461,10 +5475,10 @@ $ nova quota-show --user $tenantUser --tenant $tenant
 | key_pairs                   | 100   |
 | security_groups             | 10    |
 | security_group_rules        | 20    |
-+-----------------------------+-------+]]></screen>
++-----------------------------+-------+</screen>
           <note>
             <para>To view a list of options for the <command>quota-update</command> command, run:</para>
-            <screen language="console"><![CDATA[$ nova help quota-update]]></screen>
+            <screen language="console">$ nova help quota-update</screen>
           </note>
         </step>
       </procedure>
@@ -5473,7 +5487,7 @@ $ nova quota-show --user $tenantUser --tenant $tenant
       <title>To display the current quota usage for a tenant user</title>
       <para>Use <command>nova absolute-limits</command> to get a list of the
 current quota values and the current quota usage:</para>
-      <screen language="console"><![CDATA[$ nova absolute-limits --tenant TENANT_NAME
+      <screen language="console">$ nova absolute-limits --tenant TENANT_NAME
 +-------------------------+-------+
 | Name                    | Value |
 +-------------------------+-------+
@@ -5493,7 +5507,7 @@ current quota values and the current quota usage:</para>
 | maxTotalInstances       | 10    |
 | totalCoresUsed          | 0     |
 | maxTotalCores           | 20    |
-+-------------------------+-------+]]></screen>
++-------------------------+-------+</screen>
     </section>
   </section>
 </section>
@@ -5555,46 +5569,46 @@ defaults for a new project.</para>
       <step>
         <para>Obtain the project ID.</para>
         <para>For example:</para>
-        <screen language="console"><![CDATA[$ project_id=$(openstack project show -f value -c id PROJECT_NAME)]]></screen>
+        <screen language="console">$ project_id=$(openstack project show -f value -c id PROJECT_NAME)</screen>
       </step>
       <step>
         <para>List the default quotas for a project (tenant):</para>
-        <screen language="console"><![CDATA[$ cinder quota-defaults PROJECT_ID]]></screen>
+        <screen language="console">$ cinder quota-defaults PROJECT_ID</screen>
         <para>For example:</para>
-        <screen language="console"><![CDATA[$ cinder quota-defaults $project_id
+        <screen language="console">$ cinder quota-defaults $project_id
 +-----------+-------+
 |  Property | Value |
 +-----------+-------+
 | gigabytes |  1000 |
 | snapshots |   10  |
 |  volumes  |   10  |
-+-----------+-------+]]></screen>
++-----------+-------+</screen>
       </step>
       <step>
         <para>View Block Storage service quotas for a project (tenant):</para>
-        <screen language="console"><![CDATA[$ cinder quota-show PROJECT_ID]]></screen>
+        <screen language="console">$ cinder quota-show PROJECT_ID</screen>
         <para>For example:</para>
-        <screen language="console"><![CDATA[$ cinder quota-show $project_id
+        <screen language="console">$ cinder quota-show $project_id
 +-----------+-------+
 |  Property | Value |
 +-----------+-------+
 | gigabytes |  1000 |
 | snapshots |   10  |
 |  volumes  |   10  |
-+-----------+-------+]]></screen>
++-----------+-------+</screen>
       </step>
       <step>
         <para>Show the current usage of a per-project quota:</para>
-        <screen language="console"><![CDATA[$ cinder quota-usage PROJECT_ID]]></screen>
+        <screen language="console">$ cinder quota-usage PROJECT_ID</screen>
         <para>For example:</para>
-        <screen language="console"><![CDATA[$ cinder quota-usage $project_id
+        <screen language="console">$ cinder quota-usage $project_id
 +-----------+--------+----------+-------+
 |    Type   | In_use | Reserved | Limit |
 +-----------+--------+----------+-------+
 | gigabytes |   0    |    0     |  1000 |
 | snapshots |   0    |    0     |   10  |
 |  volumes  |   0    |    0     |   15  |
-+-----------+--------+----------+-------+]]></screen>
++-----------+--------+----------+-------+</screen>
       </step>
     </procedure>
   </section>
@@ -5605,21 +5619,21 @@ service quotas.</para>
     <procedure>
       <step>
         <para>Clear per-project quota limits.</para>
-        <screen language="console"><![CDATA[$ cinder quota-delete PROJECT_ID]]></screen>
+        <screen language="console">$ cinder quota-delete PROJECT_ID</screen>
       </step>
       <step>
         <para>To update a default value for a new project,
 update the property in the <guilabel>cinder.quota</guilabel>
 section of the <literal>/etc/cinder/cinder.conf</literal> file.
-For more information, see the <link xlink:href="http://docs.openstack.org/liberty/config-reference/content/ch_configuring-openstack-block-storage.html">Block Storage
-Configuration Reference</link>.</para>
+For more information, see the <ulink url="http://docs.openstack.org/liberty/config-reference/content/ch_configuring-openstack-block-storage.html">Block Storage
+Configuration Reference</ulink>.</para>
       </step>
       <step>
         <para>To update Block Storage service quotas for an existing project (tenant)</para>
-        <screen language="console"><![CDATA[$ cinder quota-update --QUOTA_NAME QUOTA_VALUE PROJECT_ID]]></screen>
+        <screen language="console">$ cinder quota-update --QUOTA_NAME QUOTA_VALUE PROJECT_ID</screen>
         <para>Replace QUOTA_NAME with the quota that is to be updated; NEW_VALUE with the required new value and PROJECT_ID with required project ID</para>
         <para>For example:</para>
-        <screen language="console"><![CDATA[$ cinder quota-update --volumes 15 $project_id
+        <screen language="console">$ cinder quota-update --volumes 15 $project_id
 $ cinder quota-show $project_id
 +-----------+-------+
 |  Property | Value |
@@ -5627,11 +5641,11 @@ $ cinder quota-show $project_id
 | gigabytes |  1000 |
 | snapshots |   10  |
 |  volumes  |   15  |
-+-----------+-------+]]></screen>
++-----------+-------+</screen>
       </step>
       <step>
         <para>Clear per-project quota limits.</para>
-        <screen language="console"><![CDATA[$ cinder quota-delete PROJECT_ID]]></screen>
+        <screen language="console">$ cinder quota-delete PROJECT_ID</screen>
       </step>
     </procedure>
   </section>
@@ -5640,21 +5654,21 @@ $ cinder quota-show $project_id
     <procedure>
       <step>
         <para>Determine the binary and host of the service you want to remove.</para>
-        <screen language="console"><![CDATA[$ cinder service-list
+        <screen language="console">$ cinder service-list
 +------------------+----------------------+------+---------+-------+----------------------------+-----------------+
 |      Binary      |         Host         | Zone |  Status | State |         Updated_at         | Disabled Reason |
 +------------------+----------------------+------+---------+-------+----------------------------+-----------------+
 | cinder-scheduler |       devstack       | nova | enabled |   up  | 2015-10-13T15:21:48.000000 |        -        |
 |  cinder-volume   | devstack@lvmdriver-1 | nova | enabled |   up  | 2015-10-13T15:21:52.000000 |        -        |
-+------------------+----------------------+------+---------+-------+----------------------------+-----------------+]]></screen>
++------------------+----------------------+------+---------+-------+----------------------------+-----------------+</screen>
       </step>
       <step>
         <para>Disable the service.</para>
-        <screen language="console"><![CDATA[$ cinder service-disable HOST_NAME BINARY_NAME]]></screen>
+        <screen language="console">$ cinder service-disable HOST_NAME BINARY_NAME</screen>
       </step>
       <step>
         <para>Remove the service from the database.</para>
-        <screen language="console"><![CDATA[$ cinder-manage service remove BINARY_NAME HOST_NAME]]></screen>
+        <screen language="console">$ cinder-manage service remove BINARY_NAME HOST_NAME</screen>
       </step>
     </procedure>
   </section>
@@ -5664,8 +5678,8 @@ $ cinder quota-show $project_id
   <para>A quota limits the number of available resources. A default
 quota might be enforced for all tenants. When you try to create
 more resources than the quota allows, an error occurs:</para>
-  <screen language="ini"><![CDATA[$ neutron net-create test_net
- Quota exceeded for resources: ['network']]]></screen>
+  <screen language="ini">$ neutron net-create test_net
+ Quota exceeded for resources: ['network']</screen>
   <para>Per-tenant quota configuration is also supported by the quota
 extension API. See <xref linkend="cfg-quotas-per-tenant"/> for details.</para>
   <section>
@@ -5678,7 +5692,7 @@ tenant can create.</para>
 a specific resource, such as network, subnet,
 or port, remove a corresponding item from <literal>quota_items</literal>.
 This example shows the default quota values:</para>
-    <screen language="ini"><![CDATA[[quotas]
+    <screen language="ini">[quotas]
 # resource name(s) that are supported in quota features
 quota_items = network,subnet,port
 
@@ -5692,16 +5706,16 @@ quota_subnet = 10
 quota_port = 50
 
 # default driver to use for quota checks
-quota_driver = neutron.quota.ConfDriver]]></screen>
+quota_driver = neutron.quota.ConfDriver</screen>
     <para>OpenStack Networking also supports quotas for L3 resources:
 router and floating IP. Add these lines to the
 <literal>quotas</literal> section in the <literal>neutron.conf</literal> file:</para>
-    <screen language="ini"><![CDATA[[quotas]
+    <screen language="ini">[quotas]
 # number of routers allowed per tenant, and minus means unlimited
 quota_router = 10
 
 # number of floating IPs allowed per tenant, and minus means unlimited
-quota_floatingip = 50]]></screen>
+quota_floatingip = 50</screen>
     <note>
       <para>The <literal>quota_items</literal> option does not affect these quotas.</para>
     </note>
@@ -5709,17 +5723,17 @@ quota_floatingip = 50]]></screen>
 resources: number of security groups and the number of rules for
 each security group. Add these lines to the
 <literal>quotas</literal> section in the <literal>neutron.conf</literal> file:</para>
-    <screen language="ini"><![CDATA[[quotas]
+    <screen language="ini">[quotas]
 # number of security groups per tenant, and minus means unlimited
 quota_security_group = 10
 
 # number of security rules allowed per tenant, and minus means unlimited
-quota_security_group_rule = 100]]></screen>
+quota_security_group_rule = 100</screen>
     <note>
       <para>The <literal>quota_items</literal> option does not affect these quotas.</para>
     </note>
   </section>
-  <section xml:id="cfg-quotas-per-tenant">
+  <section id="cfg-quotas-per-tenant">
     <title>Configure per-tenant quotas</title>
     <para>OpenStack Networking also supports per-tenant quota limit by
 quota extension API.</para>
@@ -5757,16 +5771,16 @@ the default set of quotas are enforced for all tenants, so no
       <step>
         <para>Configure Networking to show per-tenant quotas</para>
         <para>Set the <literal>quota_driver</literal> option in the <literal>neutron.conf</literal> file.</para>
-        <screen language="ini"><![CDATA[quota_driver = neutron.db.quota_db.DbQuotaDriver]]></screen>
+        <screen language="ini">quota_driver = neutron.db.quota_db.DbQuotaDriver</screen>
         <para>When you set this option, the output for Networking commands shows <literal>quotas</literal>.</para>
       </step>
       <step>
         <para>List Networking extensions.</para>
         <para>To list the Networking extensions, run this command:</para>
-        <screen language="console"><![CDATA[$ neutron ext-list -c alias -c name]]></screen>
+        <screen language="console">$ neutron ext-list -c alias -c name</screen>
         <para>The command shows the <literal>quotas</literal> extension, which provides
 per-tenant quota management support.</para>
-        <screen language="console"><![CDATA[+-----------------+--------------------------+
+        <screen language="console">+-----------------+--------------------------+
 | alias           | name                     |
 +-----------------+--------------------------+
 | agent_scheduler | Agent Schedulers         |
@@ -5778,12 +5792,12 @@ per-tenant quota management support.</para>
 | router          | Neutron L3 Router        |
 | lbaas           | LoadBalancing service    |
 | extraroute      | Neutron Extra Route      |
-+-----------------+--------------------------+]]></screen>
++-----------------+--------------------------+</screen>
       </step>
       <step>
         <para>Show information for the quotas extension.</para>
         <para>To show information for the <literal>quotas</literal> extension, run this command:</para>
-        <screen language="console"><![CDATA[$ neutron ext-show quotas
+        <screen language="console">$ neutron ext-show quotas
 +-------------+------------------------------------------------------------+
 | Field       | Value                                                      |
 +-------------+------------------------------------------------------------+
@@ -5793,7 +5807,7 @@ per-tenant quota management support.</para>
 | name        | Quota management support                                   |
 | namespace   | http://docs.openstack.org/network/ext/quotas-sets/api/v2.0 |
 | updated     | 2012-07-29T10:00:00-00:00                                  |
-+-------------+------------------------------------------------------------+]]></screen>
++-------------+------------------------------------------------------------+</screen>
         <note>
           <para>Only some plug-ins support per-tenant quotas.
 Specifically, Open vSwitch, Linux Bridge, and VMware NSX
@@ -5807,13 +5821,13 @@ each plug-in.</para>
         <para>The <command>quota-list</command> command lists tenants for which the per-tenant
 quota is enabled. The command does not list tenants with default
 quota support. You must be an administrative user to run this command:</para>
-        <screen language="console"><![CDATA[$ neutron quota-list
+        <screen language="console">$ neutron quota-list
 +------------+---------+------+--------+--------+----------------------------------+
 | floatingip | network | port | router | subnet | tenant_id                        |
 +------------+---------+------+--------+--------+----------------------------------+
 |         20 |       5 |   20 |     10 |      5 | 6f88036c45344d9999a1f971e4882723 |
 |         25 |      10 |   30 |     10 |     10 | bff5c9455ee24231b5bc713c1b96d422 |
-+------------+---------+------+--------+--------+----------------------------------+]]></screen>
++------------+---------+------+--------+--------+----------------------------------+</screen>
       </step>
       <step>
         <para>Show per-tenant quota values.</para>
@@ -5823,7 +5837,7 @@ Non-administrative users can run this command without the
 <option>--tenant_id</option> parameter. If per-tenant quota limits are
 not enabled for the tenant, the command shows the default
 set of quotas.</para>
-        <screen language="console"><![CDATA[$ neutron quota-show --tenant_id 6f88036c45344d9999a1f971e4882723
+        <screen language="console">$ neutron quota-show --tenant_id 6f88036c45344d9999a1f971e4882723
 +------------+-------+
 | Field      | Value |
 +------------+-------+
@@ -5832,10 +5846,10 @@ set of quotas.</para>
 | port       | 20    |
 | router     | 10    |
 | subnet     | 5     |
-+------------+-------+]]></screen>
++------------+-------+</screen>
         <para>The following command shows the command output for a
 non-administrative user.</para>
-        <screen language="console"><![CDATA[$ neutron quota-show
+        <screen language="console">$ neutron quota-show
 +------------+-------+
 | Field      | Value |
 +------------+-------+
@@ -5844,13 +5858,13 @@ non-administrative user.</para>
 | port       | 20    |
 | router     | 10    |
 | subnet     | 5     |
-+------------+-------+]]></screen>
++------------+-------+</screen>
       </step>
       <step>
         <para>Update quota values for a specified tenant.</para>
         <para>Use the <command>quota-update</command> command to
 update a quota for a specified tenant.</para>
-        <screen language="console"><![CDATA[$ neutron quota-update --tenant_id 6f88036c45344d9999a1f971e4882723 --network 5
+        <screen language="console">$ neutron quota-update --tenant_id 6f88036c45344d9999a1f971e4882723 --network 5
 +------------+-------+
 | Field      | Value |
 +------------+-------+
@@ -5859,10 +5873,10 @@ update a quota for a specified tenant.</para>
 | port       | 50    |
 | router     | 10    |
 | subnet     | 10    |
-+------------+-------+]]></screen>
++------------+-------+</screen>
         <para>You can update quotas for multiple resources through one
 command.</para>
-        <screen language="console"><![CDATA[$ neutron quota-update --tenant_id 6f88036c45344d9999a1f971e4882723 --subnet 5 --port 20
+        <screen language="console">$ neutron quota-update --tenant_id 6f88036c45344d9999a1f971e4882723 --subnet 5 --port 20
 +------------+-------+
 | Field      | Value |
 +------------+-------+
@@ -5871,13 +5885,13 @@ command.</para>
 | port       | 20    |
 | router     | 10    |
 | subnet     | 5     |
-+------------+-------+]]></screen>
++------------+-------+</screen>
         <para>To update the limits for an L3 resource such as, router
 or floating IP, you must define new values for the quotas
 after the <literal>--</literal> directive.</para>
         <para>This example updates the limit of the number of floating
 IPs for the specified tenant.</para>
-        <screen language="console"><![CDATA[$ neutron quota-update --tenant_id 6f88036c45344d9999a1f971e4882723 -- --floatingip 20
+        <screen language="console">$ neutron quota-update --tenant_id 6f88036c45344d9999a1f971e4882723 -- --floatingip 20
 +------------+-------+
 | Field      | Value |
 +------------+-------+
@@ -5886,11 +5900,11 @@ IPs for the specified tenant.</para>
 | port       | 20    |
 | router     | 10    |
 | subnet     | 5     |
-+------------+-------+]]></screen>
++------------+-------+</screen>
         <para>You can update the limits of multiple resources by
 including L2 resources and L3 resource through one
 command:</para>
-        <screen language="console"><![CDATA[$ neutron quota-update --tenant_id 6f88036c45344d9999a1f971e4882723 --network 3 --subnet 3 --port 3 -- --floatingip 3 --router 3
+        <screen language="console">$ neutron quota-update --tenant_id 6f88036c45344d9999a1f971e4882723 --network 3 --subnet 3 --port 3 -- --floatingip 3 --router 3
 +------------+-------+
 | Field      | Value |
 +------------+-------+
@@ -5899,17 +5913,17 @@ command:</para>
 | port       | 3     |
 | router     | 3     |
 | subnet     | 3     |
-+------------+-------+]]></screen>
++------------+-------+</screen>
       </step>
       <step>
         <para>Delete per-tenant quota values.</para>
         <para>To clear per-tenant quota limits, use the
 <command>quota-delete</command> command.</para>
-        <screen language="console"><![CDATA[$ neutron quota-delete --tenant_id 6f88036c45344d9999a1f971e4882723
- Deleted quota: 6f88036c45344d9999a1f971e4882723]]></screen>
+        <screen language="console">$ neutron quota-delete --tenant_id 6f88036c45344d9999a1f971e4882723
+ Deleted quota: 6f88036c45344d9999a1f971e4882723</screen>
         <para>After you run this command, you can see that quota
 values for the tenant are reset to the default values.</para>
-        <screen language="console"><![CDATA[$ neutron quota-show --tenant_id 6f88036c45344d9999a1f971e4882723
+        <screen language="console">$ neutron quota-show --tenant_id 6f88036c45344d9999a1f971e4882723
 +------------+-------+
 | Field      | Value |
 +------------+-------+
@@ -5918,7 +5932,7 @@ values for the tenant are reset to the default values.</para>
 | port       | 50    |
 | router     | 10    |
 | subnet     | 10    |
-+------------+-------+]]></screen>
++------------+-------+</screen>
       </step>
     </procedure>
   </section>
@@ -5940,54 +5954,54 @@ pipe (<literal>|</literal>) data without saving it to disk first.</para>
       <step>
         <para>This example assumes that <literal>logtest</literal> directory contains the
 following log files.</para>
-        <screen language="console"><![CDATA[2010-11-16-21_access.log
+        <screen language="console">2010-11-16-21_access.log
 2010-11-16-22_access.log
 2010-11-15-21_access.log
-2010-11-15-22_access.log]]></screen>
+2010-11-15-22_access.log</screen>
         <para>Each file uses the following line format.</para>
-        <screen language="console"><![CDATA[Nov 15 21:53:52 lucid64 proxy-server - 127.0.0.1 15/Nov/2010/22/53/52 DELETE /v1/AUTH_cd4f57824deb4248a533f2c28bf156d3/2eefc05599d44df38a7f18b0b42ffedd HTTP/1.0 204 - \
- - test%3Atester%2CAUTH_tkcdab3c6296e249d7b7e2454ee57266ff - - - txaba5984c-aac7-460e-b04b-afc43f0c6571 - 0.0432]]></screen>
+        <screen language="console">Nov 15 21:53:52 lucid64 proxy-server - 127.0.0.1 15/Nov/2010/22/53/52 DELETE /v1/AUTH_cd4f57824deb4248a533f2c28bf156d3/2eefc05599d44df38a7f18b0b42ffedd HTTP/1.0 204 - \
+ - test%3Atester%2CAUTH_tkcdab3c6296e249d7b7e2454ee57266ff - - - txaba5984c-aac7-460e-b04b-afc43f0c6571 - 0.0432</screen>
       </step>
       <step>
         <para>Change into the <literal>logtest</literal> directory.</para>
-        <screen language="console"><![CDATA[$ cd logtest]]></screen>
+        <screen language="console">$ cd logtest</screen>
       </step>
       <step>
         <para>Upload the log files into the <literal>logtest</literal> container.</para>
-        <screen language="console"><![CDATA[$ swift -A http://swift-auth.com:11000/v1.0 -U test:tester -K testing upload logtest *.log]]></screen>
-        <screen language="console"><![CDATA[2010-11-16-21_access.log
+        <screen language="console">$ swift -A http://swift-auth.com:11000/v1.0 -U test:tester -K testing upload logtest *.log</screen>
+        <screen language="console">2010-11-16-21_access.log
 2010-11-16-22_access.log
 2010-11-15-21_access.log
-2010-11-15-22_access.log]]></screen>
+2010-11-15-22_access.log</screen>
       </step>
       <step>
         <para>Get statistics for the account.</para>
-        <screen language="console"><![CDATA[$ swift -A http://swift-auth.com:11000/v1.0 -U test:tester -K testing \
--q stat]]></screen>
-        <screen language="console"><![CDATA[Account: AUTH_cd4f57824deb4248a533f2c28bf156d3
+        <screen language="console">$ swift -A http://swift-auth.com:11000/v1.0 -U test:tester -K testing \
+-q stat</screen>
+        <screen language="console">Account: AUTH_cd4f57824deb4248a533f2c28bf156d3
 Containers: 1
 Objects: 4
-Bytes: 5888268]]></screen>
+Bytes: 5888268</screen>
       </step>
       <step>
         <para>Get statistics for the <literal>logtest</literal> container.</para>
-        <screen language="console"><![CDATA[$ swift -A http://swift-auth.com:11000/v1.0 -U test:tester -K testing \
-stat logtest]]></screen>
-        <screen language="console"><![CDATA[Account: AUTH_cd4f57824deb4248a533f2c28bf156d3
+        <screen language="console">$ swift -A http://swift-auth.com:11000/v1.0 -U test:tester -K testing \
+stat logtest</screen>
+        <screen language="console">Account: AUTH_cd4f57824deb4248a533f2c28bf156d3
 Container: logtest
 Objects: 4
 Bytes: 5864468
 Read ACL:
-Write ACL:]]></screen>
+Write ACL:</screen>
       </step>
       <step>
         <para>List all objects in the logtest container.</para>
-        <screen language="console"><![CDATA[$ swift -A http:///swift-auth.com:11000/v1.0 -U test:tester -K testing \
-list logtest]]></screen>
-        <screen language="console"><![CDATA[2010-11-15-21_access.log
+        <screen language="console">$ swift -A http:///swift-auth.com:11000/v1.0 -U test:tester -K testing \
+list logtest</screen>
+        <screen language="console">2010-11-15-21_access.log
 2010-11-15-22_access.log
 2010-11-16-21_access.log
-2010-11-16-22_access.log]]></screen>
+2010-11-16-22_access.log</screen>
       </step>
     </procedure>
   </section>
@@ -6006,10 +6020,10 @@ return code combination.</para>
     <procedure>
       <step>
         <para>Download an object.</para>
-        <screen language="console"><![CDATA[$ swift -A http://swift-auth.com:11000/v1.0 -U test:tester -K testing \
+        <screen language="console">$ swift -A http://swift-auth.com:11000/v1.0 -U test:tester -K testing \
      download -o - logtest 2010-11-16-22_access.log | awk '{ print \
-     $9"-"$12}' | sort | uniq -c]]></screen>
-        <screen language="console"><![CDATA[805 DELETE-204
+     $9"-"$12}' | sort | uniq -c</screen>
+        <screen language="console">805 DELETE-204
 12 DELETE-404
 2 DELETE-409
 723 GET-200
@@ -6038,7 +6052,7 @@ return code combination.</para>
 6 PUT-412
 6 PUT-413
 2 PUT-422
-8 PUT-499]]></screen>
+8 PUT-499</screen>
       </step>
       <step>
         <para>Discover how many PUT requests are in each log file.</para>
@@ -6049,16 +6063,16 @@ PUT requests are in each log file.</para>
 container. Then, for each item in the list, run the
 <command>swift download -o -</command> command. Pipe the output into grep to
 filter the PUT requests. Finally, pipe into <literal>wc -l</literal> to count the lines.</para>
-        <screen language="console"><![CDATA[$ for f in `swift -A http://swift-auth.com:11000/v1.0 -U test:tester \
+        <screen language="console">$ for f in `swift -A http://swift-auth.com:11000/v1.0 -U test:tester \
  -K testing list logtest` ; \
         do  echo -ne "PUTS - " ; swift -A \
         http://swift-auth.com:11000/v1.0 -U test:tester \
         -K testing download -o -  logtest $f | grep PUT | wc -l ; \
-    done]]></screen>
-        <screen language="console"><![CDATA[2010-11-15-21_access.log - PUTS - 402
+    done</screen>
+        <screen language="console">2010-11-15-21_access.log - PUTS - 402
 2010-11-15-22_access.log - PUTS - 1091
 2010-11-16-21_access.log - PUTS - 892
-2010-11-16-22_access.log - PUTS - 910]]></screen>
+2010-11-16-22_access.log - PUTS - 910</screen>
       </step>
       <step>
         <para>List the object names that begin with a specified string.</para>
@@ -6074,14 +6088,14 @@ in the logtest container that begin with the <literal>2010-11-15</literal> strin
         <para>Pipe the output to <command>grep</command> and <command>wc</command>.
 Use the <command>echo</command> command to
 display the object name.</para>
-        <screen language="console"><![CDATA[$ for f in `swift -A http://swift-auth.com:11000/v1.0 -U test:tester \
+        <screen language="console">$ for f in `swift -A http://swift-auth.com:11000/v1.0 -U test:tester \
  -K testing list -p 2010-11-15 logtest` ; \
         do  echo -ne "$f - PUTS - " ; swift -A \
         http://127.0.0.1:11000/v1.0 -U test:tester \
         -K testing download -o - logtest $f | grep PUT | wc -l ; \
-      done]]></screen>
-        <screen language="console"><![CDATA[2010-11-15-21_access.log - PUTS - 402
-2010-11-15-22_access.log - PUTS - 910]]></screen>
+      done</screen>
+        <screen language="console">2010-11-15-21_access.log - PUTS - 402
+2010-11-15-22_access.log - PUTS - 910</screen>
       </step>
     </procedure>
   </section>
@@ -6094,36 +6108,36 @@ anti-affinity between two volumes. Affinity between volumes means
 that they are stored on the same back end, whereas anti-affinity
 means that they are stored on different back ends.</para>
   <para>For information on how to set up multiple back ends for Cinder,
-refer to the guide for <link xlink:href="http://docs.openstack.org/admin-guide-cloud/blockstorage_multi_backend.html">Configuring multiple-storage back ends</link>.</para>
+refer to the guide for <ulink url="http://docs.openstack.org/admin-guide-cloud/blockstorage_multi_backend.html">Configuring multiple-storage back ends</ulink>.</para>
   <section>
     <title>Example Usages</title>
     <procedure>
       <step>
         <para>Create new volume on the same back end as Volume_A:</para>
-        <screen language="console"><![CDATA[$ cinder create --hint same_host=Volume_A-UUID SIZE]]></screen>
+        <screen language="console">$ cinder create --hint same_host=Volume_A-UUID SIZE</screen>
       </step>
       <step>
         <para>Create new volume on a different back end than Volume_A:</para>
-        <screen language="console"><![CDATA[$ cinder create --hint different_host=Volume_A-UUID SIZE]]></screen>
+        <screen language="console">$ cinder create --hint different_host=Volume_A-UUID SIZE</screen>
       </step>
       <step>
         <para>Create new volume on the same back end as Volume_A and Volume_B:</para>
-        <screen language="console"><![CDATA[$ cinder create --hint same_host=Volume_A-UUID --hint same_host=Volume_B-UUID SIZE]]></screen>
+        <screen language="console">$ cinder create --hint same_host=Volume_A-UUID --hint same_host=Volume_B-UUID SIZE</screen>
         <para>Or:</para>
-        <screen language="console"><![CDATA[$ cinder create --hint same_host="[Volume_A-UUID, Volume_B-UUID]" SIZE]]></screen>
+        <screen language="console">$ cinder create --hint same_host="[Volume_A-UUID, Volume_B-UUID]" SIZE</screen>
       </step>
       <step>
         <para>Create new volume on a different back end than both Volume_A and Volume_B:</para>
-        <screen language="console"><![CDATA[$ cinder create --hint different_host=Volume_A-UUID --hint different_host=Volume_B-UUID SIZE]]></screen>
+        <screen language="console">$ cinder create --hint different_host=Volume_A-UUID --hint different_host=Volume_B-UUID SIZE</screen>
         <para>Or:</para>
-        <screen language="console"><![CDATA[$ cinder create --hint different_host="[Volume_A-UUID, Volume_B-UUID]" SIZE]]></screen>
+        <screen language="console">$ cinder create --hint different_host="[Volume_A-UUID, Volume_B-UUID]" SIZE</screen>
       </step>
     </procedure>
   </section>
 </section>
 </chapter>
-<chapter xml:base="common/app_support.xml"><title>Community support</title><info/>
-  
+<chapter xml:base="common/app_support.xml">
+  <title>Community support</title>
   <para>The following resources are available to help you run and use OpenStack.
 The OpenStack community constantly improves and adds to the main
 features of OpenStack, but if you have any questions, do not hesitate to
@@ -6132,31 +6146,31 @@ troubleshoot your installations.</para>
   <section>
     <title>Documentation</title>
     <para>For the available OpenStack documentation, see
-<link xlink:href="http://docs.openstack.org">docs.openstack.org</link>.</para>
+<ulink url="http://docs.openstack.org">docs.openstack.org</ulink>.</para>
     <para>To provide feedback on documentation, join and use the
-<link xlink:href="mailto:openstack-docs@lists.openstack.org">openstack-docs@lists.openstack.org</link> mailing list at <link xlink:href="http://lists.openstack.org/cgi-bin/mailman/listinfo/openstack-docs">OpenStack
+<ulink url="mailto:openstack-docs@lists.openstack.org">openstack-docs@lists.openstack.org</ulink> mailing list at <ulink url="http://lists.openstack.org/cgi-bin/mailman/listinfo/openstack-docs">OpenStack
 Documentation Mailing
-List</link>,
-or <link xlink:href="https://bugs.launchpad.net/openstack-manuals/+filebug">report a
-bug</link>.</para>
+List</ulink>,
+or <ulink url="https://bugs.launchpad.net/openstack-manuals/+filebug">report a
+bug</ulink>.</para>
     <para>The following books explain how to install an OpenStack cloud and its
 associated components:</para>
     <itemizedlist>
       <listitem>
         <para>
-          <link xlink:href="http://docs.openstack.org/liberty/install-guide-obs/">Installation Guide for openSUSE 13.2 and SUSE Linux Enterprise
-Server 12</link>
+          <ulink url="http://docs.openstack.org/liberty/install-guide-obs/">Installation Guide for openSUSE 13.2 and SUSE Linux Enterprise
+Server 12</ulink>
         </para>
       </listitem>
       <listitem>
         <para>
-          <link xlink:href="http://docs.openstack.org/liberty/install-guide-rdo/">Installation Guide for Red Hat Enterprise Linux 7 and CentOS 7</link>
+          <ulink url="http://docs.openstack.org/liberty/install-guide-rdo/">Installation Guide for Red Hat Enterprise Linux 7 and CentOS 7</ulink>
         </para>
       </listitem>
       <listitem>
         <para>
-          <link xlink:href="http://docs.openstack.org/liberty/install-guide-ubuntu/">Installation Guide for Ubuntu
-14.04</link>
+          <ulink url="http://docs.openstack.org/liberty/install-guide-ubuntu/">Installation Guide for Ubuntu
+14.04</ulink>
         </para>
       </listitem>
     </itemizedlist>
@@ -6164,47 +6178,47 @@ Server 12</link>
     <itemizedlist>
       <listitem>
         <para>
-          <link xlink:href="http://docs.openstack.org/arch-design/">Architecture Design
-Guide</link>
+          <ulink url="http://docs.openstack.org/arch-design/">Architecture Design
+Guide</ulink>
         </para>
       </listitem>
       <listitem>
         <para>
-          <link xlink:href="http://docs.openstack.org/admin-guide-cloud/">Cloud Administrator
-Guide</link>
+          <ulink url="http://docs.openstack.org/admin-guide-cloud/">Cloud Administrator
+Guide</ulink>
         </para>
       </listitem>
       <listitem>
         <para>
-          <link xlink:href="http://docs.openstack.org/liberty/config-reference/content/">Configuration
-Reference</link>
+          <ulink url="http://docs.openstack.org/liberty/config-reference/content/">Configuration
+Reference</ulink>
         </para>
       </listitem>
       <listitem>
         <para>
-          <link xlink:href="http://docs.openstack.org/ops/">Operations Guide</link>
+          <ulink url="http://docs.openstack.org/ops/">Operations Guide</ulink>
         </para>
       </listitem>
       <listitem>
         <para>
-          <link xlink:href="http://docs.openstack.org/liberty/networking-guide">Networking Guide</link>
+          <ulink url="http://docs.openstack.org/liberty/networking-guide">Networking Guide</ulink>
         </para>
       </listitem>
       <listitem>
         <para>
-          <link xlink:href="http://docs.openstack.org/ha-guide/">High Availability
-Guide</link>
+          <ulink url="http://docs.openstack.org/ha-guide/">High Availability
+Guide</ulink>
         </para>
       </listitem>
       <listitem>
         <para>
-          <link xlink:href="http://docs.openstack.org/sec/">Security Guide</link>
+          <ulink url="http://docs.openstack.org/sec/">Security Guide</ulink>
         </para>
       </listitem>
       <listitem>
         <para>
-          <link xlink:href="http://docs.openstack.org/image-guide/">Virtual Machine Image
-Guide</link>
+          <ulink url="http://docs.openstack.org/image-guide/">Virtual Machine Image
+Guide</ulink>
         </para>
       </listitem>
     </itemizedlist>
@@ -6213,24 +6227,24 @@ command-line clients:</para>
     <itemizedlist>
       <listitem>
         <para>
-          <link xlink:href="http://developer.openstack.org/api-guide/quick-start/">API Guide</link>
+          <ulink url="http://developer.openstack.org/api-guide/quick-start/">API Guide</ulink>
         </para>
       </listitem>
       <listitem>
         <para>
-          <link xlink:href="http://docs.openstack.org/user-guide/">End User Guide</link>
+          <ulink url="http://docs.openstack.org/user-guide/">End User Guide</ulink>
         </para>
       </listitem>
       <listitem>
         <para>
-          <link xlink:href="http://docs.openstack.org/user-guide-admin/">Admin User
-Guide</link>
+          <ulink url="http://docs.openstack.org/user-guide-admin/">Admin User
+Guide</ulink>
         </para>
       </listitem>
       <listitem>
         <para>
-          <link xlink:href="http://docs.openstack.org/cli-reference/">Command-Line Interface
-Reference</link>
+          <ulink url="http://docs.openstack.org/cli-reference/">Command-Line Interface
+Reference</ulink>
         </para>
       </listitem>
     </itemizedlist>
@@ -6239,14 +6253,14 @@ for the OpenStack APIs:</para>
     <itemizedlist>
       <listitem>
         <para>
-          <link xlink:href="http://developer.openstack.org/api-ref.html">OpenStack API Complete Reference
-(HTML)</link>
+          <ulink url="http://developer.openstack.org/api-ref.html">OpenStack API Complete Reference
+(HTML)</ulink>
         </para>
       </listitem>
       <listitem>
         <para>
-          <link xlink:href="http://developer.openstack.org/api-ref-guides/bk-api-ref.pdf">API Complete Reference
-(PDF)</link>
+          <ulink url="http://developer.openstack.org/api-ref-guides/bk-api-ref.pdf">API Complete Reference
+(PDF)</ulink>
         </para>
       </listitem>
     </itemizedlist>
@@ -6254,7 +6268,7 @@ for the OpenStack APIs:</para>
     <itemizedlist>
       <listitem>
         <para>
-          <link xlink:href="http://docs.openstack.org/contributor-guide/">Documentation contributor guide</link>
+          <ulink url="http://docs.openstack.org/contributor-guide/">Documentation contributor guide</ulink>
         </para>
       </listitem>
     </itemizedlist>
@@ -6264,8 +6278,8 @@ for the OpenStack APIs:</para>
     <para>During the set up or testing of OpenStack, you might have questions
 about how a specific task is completed or be in a situation where a
 feature does not work correctly. Use the
-<link xlink:href="https://ask.openstack.org">ask.openstack.org</link> site to ask questions
-and get answers. When you visit the <link xlink:href="https://ask.openstack.org">https://ask.openstack.org</link> site, scan
+<ulink url="https://ask.openstack.org">ask.openstack.org</ulink> site to ask questions
+and get answers. When you visit the <ulink url="https://ask.openstack.org">https://ask.openstack.org</ulink> site, scan
 the recently asked questions to see whether your question has already
 been answered. If not, ask a new question. Be sure to give a clear,
 concise summary in the title and provide as much detail as possible in
@@ -6278,15 +6292,15 @@ screen shots, and any other information which might be useful.</para>
 problematic scenario to the OpenStack mailing list. You can learn from
 and help others who might have similar issues. To subscribe or view the
 archives, go to
-<link xlink:href="http://lists.openstack.org/cgi-bin/mailman/listinfo/openstack">http://lists.openstack.org/cgi-bin/mailman/listinfo/openstack</link>. You might
+<ulink url="http://lists.openstack.org/cgi-bin/mailman/listinfo/openstack">http://lists.openstack.org/cgi-bin/mailman/listinfo/openstack</ulink>. You might
 be interested in the other mailing lists for specific projects or
-development, which you can find <link xlink:href="https://wiki.openstack.org/wiki/MailingLists">on the
-wiki</link>. A description of all
-mailing lists is available at <link xlink:href="https://wiki.openstack.org/wiki/MailingLists">https://wiki.openstack.org/wiki/MailingLists</link>.</para>
+development, which you can find <ulink url="https://wiki.openstack.org/wiki/MailingLists">on the
+wiki</ulink>. A description of all
+mailing lists is available at <ulink url="https://wiki.openstack.org/wiki/MailingLists">https://wiki.openstack.org/wiki/MailingLists</ulink>.</para>
   </section>
   <section>
     <title>The OpenStack wiki</title>
-    <para>The <link xlink:href="https://wiki.openstack.org/">OpenStack wiki</link> contains a broad
+    <para>The <ulink url="https://wiki.openstack.org/">OpenStack wiki</ulink> contains a broad
 range of topics but some of the information can be difficult to find or
 is a few pages deep. Fortunately, the wiki search feature enables you to
 search by title or content. If you search for specific information, such
@@ -6299,7 +6313,7 @@ of any OpenStack wiki page.</para>
     <title>The Launchpad Bugs area</title>
     <para>The OpenStack community values your set up and testing efforts and wants
 your feedback. To log a bug, you must sign up for a Launchpad account at
-<link xlink:href="https://launchpad.net/+login">https://launchpad.net/+login</link>. You can view existing bugs and report bugs
+<ulink url="https://launchpad.net/+login">https://launchpad.net/+login</ulink>. You can view existing bugs and report bugs
 in the Launchpad Bugs area. Use the search feature to determine whether
 the bug has already been reported or already been fixed. If it still
 seems like your bug is unreported, fill out a bug report.</para>
@@ -6327,145 +6341,145 @@ are using Ubuntu 14.04 or are performing a multi-node installation.</para>
     <itemizedlist>
       <listitem>
         <para>
-          <link xlink:href="https://bugs.launchpad.net/cinder">Bugs: OpenStack Block Storage
-(cinder)</link>
+          <ulink url="https://bugs.launchpad.net/cinder">Bugs: OpenStack Block Storage
+(cinder)</ulink>
         </para>
       </listitem>
       <listitem>
         <para>
-          <link xlink:href="https://bugs.launchpad.net/nova">Bugs: OpenStack Compute (nova)</link>
+          <ulink url="https://bugs.launchpad.net/nova">Bugs: OpenStack Compute (nova)</ulink>
         </para>
       </listitem>
       <listitem>
         <para>
-          <link xlink:href="https://bugs.launchpad.net/horizon">Bugs: OpenStack Dashboard
-(horizon)</link>
+          <ulink url="https://bugs.launchpad.net/horizon">Bugs: OpenStack Dashboard
+(horizon)</ulink>
         </para>
       </listitem>
       <listitem>
         <para>
-          <link xlink:href="https://bugs.launchpad.net/keystone">Bugs: OpenStack Identity
-(keystone)</link>
+          <ulink url="https://bugs.launchpad.net/keystone">Bugs: OpenStack Identity
+(keystone)</ulink>
         </para>
       </listitem>
       <listitem>
         <para>
-          <link xlink:href="https://bugs.launchpad.net/glance">Bugs: OpenStack Image service
-(glance)</link>
+          <ulink url="https://bugs.launchpad.net/glance">Bugs: OpenStack Image service
+(glance)</ulink>
         </para>
       </listitem>
       <listitem>
         <para>
-          <link xlink:href="https://bugs.launchpad.net/neutron">Bugs: OpenStack Networking
-(neutron)</link>
+          <ulink url="https://bugs.launchpad.net/neutron">Bugs: OpenStack Networking
+(neutron)</ulink>
         </para>
       </listitem>
       <listitem>
         <para>
-          <link xlink:href="https://bugs.launchpad.net/swift">Bugs: OpenStack Object Storage
-(swift)</link>
+          <ulink url="https://bugs.launchpad.net/swift">Bugs: OpenStack Object Storage
+(swift)</ulink>
         </para>
       </listitem>
       <listitem>
         <para>
-          <link xlink:href="https://bugs.launchpad.net/murano">Bugs: Application catalog (murano)</link>
+          <ulink url="https://bugs.launchpad.net/murano">Bugs: Application catalog (murano)</ulink>
         </para>
       </listitem>
       <listitem>
         <para>
-          <link xlink:href="https://bugs.launchpad.net/ironic">Bugs: Bare metal service (ironic)</link>
+          <ulink url="https://bugs.launchpad.net/ironic">Bugs: Bare metal service (ironic)</ulink>
         </para>
       </listitem>
       <listitem>
         <para>
-          <link xlink:href="https://bugs.launchpad.net/senlin">Bugs: Clustering service (senlin)</link>
+          <ulink url="https://bugs.launchpad.net/senlin">Bugs: Clustering service (senlin)</ulink>
         </para>
       </listitem>
       <listitem>
         <para>
-          <link xlink:href="https://bugs.launchpad.net/magnum">Bugs: Containers service (magnum)</link>
+          <ulink url="https://bugs.launchpad.net/magnum">Bugs: Containers service (magnum)</ulink>
         </para>
       </listitem>
       <listitem>
         <para>
-          <link xlink:href="https://bugs.launchpad.net/sahara">Bugs: Data processing service
-(sahara)</link>
+          <ulink url="https://bugs.launchpad.net/sahara">Bugs: Data processing service
+(sahara)</ulink>
         </para>
       </listitem>
       <listitem>
         <para>
-          <link xlink:href="https://bugs.launchpad.net/trove">Bugs: Database service (trove)</link>
+          <ulink url="https://bugs.launchpad.net/trove">Bugs: Database service (trove)</ulink>
         </para>
       </listitem>
       <listitem>
         <para>
-          <link xlink:href="https://bugs.launchpad.net/fuel">Bugs: Deployment service (fuel)</link>
+          <ulink url="https://bugs.launchpad.net/fuel">Bugs: Deployment service (fuel)</ulink>
         </para>
       </listitem>
       <listitem>
         <para>
-          <link xlink:href="https://bugs.launchpad.net/designate">Bugs: DNS service (designate)</link>
+          <ulink url="https://bugs.launchpad.net/designate">Bugs: DNS service (designate)</ulink>
         </para>
       </listitem>
       <listitem>
         <para>
-          <link xlink:href="https://bugs.launchpad.net/barbican">Bugs: Key Manager Service (barbican)</link>
+          <ulink url="https://bugs.launchpad.net/barbican">Bugs: Key Manager Service (barbican)</ulink>
         </para>
       </listitem>
       <listitem>
         <para>
-          <link xlink:href="https://bugs.launchpad.net/monasca">Bugs: Monitoring (monasca)</link>
+          <ulink url="https://bugs.launchpad.net/monasca">Bugs: Monitoring (monasca)</ulink>
         </para>
       </listitem>
       <listitem>
         <para>
-          <link xlink:href="https://bugs.launchpad.net/heat">Bugs: Orchestration (heat)</link>
+          <ulink url="https://bugs.launchpad.net/heat">Bugs: Orchestration (heat)</ulink>
         </para>
       </listitem>
       <listitem>
         <para>
-          <link xlink:href="https://bugs.launchpad.net/cloudkitty">Bugs: Rating (cloudkitty)</link>
+          <ulink url="https://bugs.launchpad.net/cloudkitty">Bugs: Rating (cloudkitty)</ulink>
         </para>
       </listitem>
       <listitem>
         <para>
-          <link xlink:href="https://bugs.launchpad.net/manila">Bugs: Shared file systems (manila)</link>
+          <ulink url="https://bugs.launchpad.net/manila">Bugs: Shared file systems (manila)</ulink>
         </para>
       </listitem>
       <listitem>
         <para>
-          <link xlink:href="https://bugs.launchpad.net/ceilometer">Bugs: Telemetry
-(ceilometer)</link>
+          <ulink url="https://bugs.launchpad.net/ceilometer">Bugs: Telemetry
+(ceilometer)</ulink>
         </para>
       </listitem>
       <listitem>
         <para>
-          <link xlink:href="https://bugs.launchpad.net/gnocchi">Bugs: Telemetry v3
-(gnocchi)</link>
+          <ulink url="https://bugs.launchpad.net/gnocchi">Bugs: Telemetry v3
+(gnocchi)</ulink>
         </para>
       </listitem>
       <listitem>
         <para>
-          <link xlink:href="https://bugs.launchpad.net/mistral">Bugs: Workflow service
-(mistral)</link>
+          <ulink url="https://bugs.launchpad.net/mistral">Bugs: Workflow service
+(mistral)</ulink>
         </para>
       </listitem>
       <listitem>
         <para>
-          <link xlink:href="https://bugs.launchpad.net/zaqar">Bugs: Messaging service
-(zaqar)</link>
+          <ulink url="https://bugs.launchpad.net/zaqar">Bugs: Messaging service
+(zaqar)</ulink>
         </para>
       </listitem>
       <listitem>
         <para>
-          <link xlink:href="https://bugs.launchpad.net/openstack-api-site">Bugs: OpenStack API Documentation
-(developer.openstack.org)</link>
+          <ulink url="https://bugs.launchpad.net/openstack-api-site">Bugs: OpenStack API Documentation
+(developer.openstack.org)</ulink>
         </para>
       </listitem>
       <listitem>
         <para>
-          <link xlink:href="https://bugs.launchpad.net/openstack-manuals">Bugs: OpenStack Documentation
-(docs.openstack.org)</link>
+          <ulink url="https://bugs.launchpad.net/openstack-manuals">Bugs: OpenStack Documentation
+(docs.openstack.org)</ulink>
         </para>
       </listitem>
     </itemizedlist>
@@ -6476,25 +6490,25 @@ are using Ubuntu 14.04 or are performing a multi-node installation.</para>
 Freenode network. You can hang out, ask questions, or get immediate
 feedback for urgent and pressing issues. To install an IRC client or use
 a browser-based client, go to
-<link xlink:href="https://webchat.freenode.net">https://webchat.freenode.net/</link>. You can
-also use Colloquy (Mac OS X, <link xlink:href="http://colloquy.info/">http://colloquy.info/</link>), mIRC (Windows,
-<link xlink:href="http://www.mirc.com/">http://www.mirc.com/</link>), or XChat (Linux). When you are in the IRC channel
+<ulink url="https://webchat.freenode.net">https://webchat.freenode.net/</ulink>. You can
+also use Colloquy (Mac OS X, <ulink url="http://colloquy.info/">http://colloquy.info/</ulink>), mIRC (Windows,
+<ulink url="http://www.mirc.com/">http://www.mirc.com/</ulink>), or XChat (Linux). When you are in the IRC channel
 and want to share code or command output, the generally accepted method
 is to use a Paste Bin. The OpenStack project has one at
-<link xlink:href="http://paste.openstack.org">http://paste.openstack.org</link>. Just paste your longer amounts of text or
+<ulink url="http://paste.openstack.org">http://paste.openstack.org</ulink>. Just paste your longer amounts of text or
 logs in the web form and you get a URL that you can paste into the
 channel. The OpenStack IRC channel is <literal>#openstack</literal> on
 <literal>irc.freenode.net</literal>. You can find a list of all OpenStack IRC channels
-at <link xlink:href="https://wiki.openstack.org/wiki/IRC">https://wiki.openstack.org/wiki/IRC</link>.</para>
+at <ulink url="https://wiki.openstack.org/wiki/IRC">https://wiki.openstack.org/wiki/IRC</ulink>.</para>
   </section>
   <section>
     <title>Documentation feedback</title>
     <para>To provide feedback on documentation, join and use the
-<link xlink:href="mailto:openstack-docs@lists.openstack.org">openstack-docs@lists.openstack.org</link> mailing list at <link xlink:href="http://lists.openstack.org/cgi-bin/mailman/listinfo/openstack-docs">OpenStack
+<ulink url="mailto:openstack-docs@lists.openstack.org">openstack-docs@lists.openstack.org</ulink> mailing list at <ulink url="http://lists.openstack.org/cgi-bin/mailman/listinfo/openstack-docs">OpenStack
 Documentation Mailing
-List</link>,
-or <link xlink:href="https://bugs.launchpad.net/openstack-manuals/+filebug">report a
-bug</link>.</para>
+List</ulink>,
+or <ulink url="https://bugs.launchpad.net/openstack-manuals/+filebug">report a
+bug</ulink>.</para>
   </section>
   <section>
     <title>OpenStack distribution packages</title>
@@ -6504,35 +6518,35 @@ for OpenStack:</para>
       <listitem>
         <para>
           <emphasis role="bold">Debian:</emphasis>
-          <link xlink:href="https://wiki.debian.org/OpenStack">https://wiki.debian.org/OpenStack</link>
+          <ulink url="https://wiki.debian.org/OpenStack">https://wiki.debian.org/OpenStack</ulink>
         </para>
       </listitem>
       <listitem>
         <para>
           <emphasis role="bold">CentOS, Fedora, and Red Hat Enterprise Linux:</emphasis>
-          <link xlink:href="https://www.rdoproject.org/">https://www.rdoproject.org/</link>
+          <ulink url="https://www.rdoproject.org/">https://www.rdoproject.org/</ulink>
         </para>
       </listitem>
       <listitem>
         <para>
           <emphasis role="bold">openSUSE and SUSE Linux Enterprise Server:</emphasis>
-          <link xlink:href="https://en.opensuse.org/Portal:OpenStack">https://en.opensuse.org/Portal:OpenStack</link>
+          <ulink url="https://en.opensuse.org/Portal:OpenStack">https://en.opensuse.org/Portal:OpenStack</ulink>
         </para>
       </listitem>
       <listitem>
         <para>
           <emphasis role="bold">Ubuntu:</emphasis>
-          <link xlink:href="https://wiki.ubuntu.com/ServerTeam/CloudArchive">https://wiki.ubuntu.com/ServerTeam/CloudArchive</link>
+          <ulink url="https://wiki.ubuntu.com/ServerTeam/CloudArchive">https://wiki.ubuntu.com/ServerTeam/CloudArchive</ulink>
         </para>
       </listitem>
     </itemizedlist>
   </section>
 </chapter>
-<chapter xml:base="common/glossary.xml"><title>Glossary</title><info/>
-  
+<chapter xml:base="common/glossary.xml">
+  <title>Glossary</title>
   <para>This glossary offers a list of terms and definitions to define a
 vocabulary for OpenStack-related concepts.</para>
-  <para>To add to OpenStack glossary, clone the <link xlink:href="https://git.openstack.org/cgit/openstack/openstack-manuals">openstack/openstack-manuals repository</link> and update the source file
+  <para>To add to OpenStack glossary, clone the <ulink url="https://git.openstack.org/cgit/openstack/openstack-manuals">openstack/openstack-manuals repository</ulink> and update the source file
 <literal>doc/glossary/glossary-terms.xml</literal> through the
 OpenStack contribution process.</para>
   <glosslist>
