@@ -1,10 +1,8 @@
 <!-- Converted by suse-upgrade version 1.1 -->
 
 <book xmlns="http://docbook.org/ns/docbook"
-  xmlns:dm="urn:x-suse:ns:docmanager"
   xmlns:xi="http://www.w3.org/2001/XInclude"
-  xmlns:xlink="http://www.w3.org/1999/xlink" 
-  version="5.0" xml:lang="en">
+  xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:lang="en">
   <title>OpenStack Admin User Guide</title>
   <info>
     <productname>SUSE OpenStack Cloud</productname>
@@ -27,14 +25,6 @@
       <para>This guide documents OpenStack Liberty, OpenStack Kilo, and
         OpenStack Juno releases.</para>
     </abstract>
-    <dm:docmanager>
-      <dm:bugtracker>
-        <dm:url>https://bugzilla.suse.com/enter_bug.cgi</dm:url>
-        <dm:product>SUSE OpenStack Cloud 6</dm:product>
-        <dm:component>Documentation</dm:component>
-        <dm:assignee>taroth@suse.com</dm:assignee> 
-      </dm:bugtracker>
-    </dm:docmanager>
   </info>
   <chapter xml:base="common/conventions.xml">
     <title>Conventions</title>
@@ -204,7 +194,7 @@
           You can select the project from the drop down menu at the top
           left.</para>
         <figure>
-          <title/>
+          <title> Project tab</title>
           <mediaobject>
             <imageobject role="fo">
               <imagedata fileref="dashboard_project_tab.png" width="100%"/>
@@ -319,7 +309,7 @@
           view usage and to manage instances, volumes, flavors, images, networks
           and so on.</para>
         <figure>
-          <title/>
+          <title> Admin tab</title>
           <mediaobject>
             <imageobject role="fo">
               <imagedata fileref="dashboard_admin_tab.png" width="100%"/>
@@ -442,7 +432,7 @@
       <section xml:id="dashboard-identity-tab">
         <title>OpenStack dashboard — <guilabel>Identity</guilabel> tab</title>
         <figure>
-          <title/>
+          <title>Identity tab</title>
           <mediaobject>
             <imageobject role="fo">
               <imagedata fileref="dashboard_identity_tab.png" width="100%"/>
@@ -466,7 +456,7 @@
       <section xml:id="dashboard-settings-tab">
         <title>OpenStack dashboard — <guilabel>Settings</guilabel> tab</title>
         <figure>
-          <title/>
+          <title>Settings tab</title>
           <mediaobject>
             <imageobject role="fo">
               <imagedata fileref="dashboard_settings_tab.png" width="100%"/>
@@ -538,8 +528,8 @@
               select the following values:</para>
             <informaltable>
               <tgroup cols="2">
-                <colspec colwidth="30*"/>
-                <colspec colwidth="70*"/>
+                <colspec colwidth="48.4*"/>
+                <colspec colwidth="51.6*"/>
                 <tbody>
                   <row>
                     <entry>
@@ -941,10 +931,10 @@
       <para>The following table lists the default flavors.</para>
       <informaltable>
         <tgroup cols="4">
-          <colspec colwidth="40*"/>
-          <colspec colwidth="10*"/>
-          <colspec colwidth="25*"/>
-          <colspec colwidth="25*"/>
+          <colspec colwidth="24.5*"/>
+          <colspec colwidth="18.4*"/>
+          <colspec colwidth="30.6*"/>
+          <colspec colwidth="26.5*"/>
           <thead>
             <row>
               <entry>
@@ -1057,8 +1047,8 @@
                 Information</guilabel> tab.</para>
             <informaltable>
               <tgroup cols="2">
-                <colspec colwidth="30*"/>
-                <colspec colwidth="70*"/>
+                <colspec colwidth="39.1*"/>
+                <colspec colwidth="60.9*"/>
                 <tbody>
                   <row>
                     <entry>
@@ -1124,7 +1114,7 @@
                         for the ephemeral partition. If unspecified, the value
                         is 0 by default.</para>
                       <para>Ephemeral disks offer machine local disk storage
-                        linked to the life cycle of a VM instance. When a VM is
+                        linked to the lifecycle of a VM instance. When a VM is
                         terminated, all data on the ephemeral disk is lost.
                         Ephemeral disks are not included in any
                         snapshots.</para>
@@ -1220,8 +1210,8 @@
             <table>
               <title>Optional metadata keys</title>
               <tgroup cols="2">
-                <colspec colwidth="30*"/>
-                <colspec colwidth="70*"/>
+                <colspec colwidth="50.0*"/>
+                <colspec colwidth="50.0*"/>
                 <tbody>
                   <row>
                     <entry morerows="4">
@@ -1487,9 +1477,9 @@
           encrypted volumes.</para>
         <informaltable>
           <tgroup cols="3">
-            <colspec colwidth="20*"/>
-            <colspec colwidth="30*"/>
-            <colspec colwidth="50*"/>
+            <colspec colwidth="28.2*"/>
+            <colspec colwidth="32.4*"/>
+            <colspec colwidth="39.4*"/>
             <thead>
               <row>
                 <entry>
@@ -1893,9 +1883,9 @@
       <table>
         <title>Quota Descriptions</title>
         <tgroup cols="3">
-          <colspec colwidth="20*"/>
-          <colspec colwidth="60*"/>
-          <colspec colwidth="20*"/>
+          <colspec colwidth="28.2*"/>
+          <colspec colwidth="50.7*"/>
+          <colspec colwidth="21.1*"/>
           <thead>
             <row>
               <entry>
@@ -2368,10 +2358,10 @@
       <table>
         <title>OpenStack services and clients</title>
         <tgroup cols="4">
-          <colspec colwidth="20*"/>
-          <colspec colwidth="15*"/>
-          <colspec colwidth="20*"/>
-          <colspec colwidth="45*"/>
+          <colspec colwidth="21.9*"/>
+          <colspec colwidth="13.7*"/>
+          <colspec colwidth="31.5*"/>
+          <colspec colwidth="32.9*"/>
           <thead>
             <row>
               <entry>
@@ -2492,13 +2482,13 @@
                 <para>Deployment service</para>
               </entry>
               <entry>
-                <para>tuskar</para>
+                <para>fuel</para>
               </entry>
               <entry>
-                <para>python-tuskarclient</para>
+                <para>python-fuelclient</para>
               </entry>
               <entry>
-                <para>Plans Deployments.</para>
+                <para>Plans deployments.</para>
               </entry>
             </row>
             <row>
@@ -2708,8 +2698,8 @@
           needed.</para>
         <informaltable>
           <tgroup cols="2">
-            <colspec colwidth="23*"/>
-            <colspec colwidth="77*"/>
+            <colspec colwidth="30.3*"/>
+            <colspec colwidth="69.7*"/>
             <thead>
               <row>
                 <entry>
@@ -2875,6 +2865,9 @@ Liberty/SLE_12 Liberty]]></screen>
             <para><literal>designate</literal> - DNS service API</para>
           </listitem>
           <listitem>
+            <para><literal>fuel</literal> - Deployment service API</para>
+          </listitem>
+          <listitem>
             <para><literal>glance</literal> - Image service API</para>
           </listitem>
           <listitem>
@@ -2915,9 +2908,6 @@ Liberty/SLE_12 Liberty]]></screen>
           </listitem>
           <listitem>
             <para><literal>trove</literal> - Database service API</para>
-          </listitem>
-          <listitem>
-            <para><literal>tuskar</literal> - Deployment service API</para>
           </listitem>
           <listitem>
             <para><literal>openstack</literal> - Common OpenStack client
@@ -3177,7 +3167,7 @@ export OS_CACERT=/path/to/cacertFile]]></screen>
         account from its primary project.</para>
       <para>Before you can run keystone client commands, you must download and
         source an OpenStack RC file. See <link
-          xlink:href="http://docs.openstack.org/user-guide/common/cli_set_environment_variables_using_openstack_rc.html"
+          xlink:href="http://docs.openstack.org/user-guide/common/cli_set_environment_variables_using_openstack_rc.html#download-and-source-the-openstack-rc-file"
           >Download and source the OpenStack RC file</link>.</para>
       <section>
         <title>Projects</title>
@@ -4146,8 +4136,8 @@ export OS_TENANT_NAME=tenant01]]></screen>
         <table xml:id="disk-and-cd-rom-bus-model-values-table">
           <title>Disk and CD-ROM bus model values</title>
           <tgroup cols="2">
-            <colspec colwidth="50*"/>
-            <colspec colwidth="50*"/>
+            <colspec colwidth="49.0*"/>
+            <colspec colwidth="51.0*"/>
             <thead>
               <row>
                 <entry>
@@ -4201,8 +4191,8 @@ export OS_TENANT_NAME=tenant01]]></screen>
         <table xml:id="vif-model-values-table">
           <title>VIF model values</title>
           <tgroup cols="2">
-            <colspec colwidth="50*"/>
-            <colspec colwidth="50*"/>
+            <colspec colwidth="49.0*"/>
+            <colspec colwidth="51.0*"/>
             <thead>
               <row>
                 <entry>
@@ -4793,7 +4783,7 @@ export OS_TENANT_NAME=tenant01]]></screen>
           <listitem>
             <para>Amount of disk space (in gigabytes) to use for the ephemeral
               partition. If unspecified, the value is 0 by default. Ephemeral
-              disks offer machine local disk storage linked to the life cycle of
+              disks offer machine local disk storage linked to the lifecycle of
               a VM instance. When a VM is terminated, all data on the ephemeral
               disk is lost. Ephemeral disks are not included in any
               snapshots.</para>
@@ -4810,10 +4800,10 @@ export OS_TENANT_NAME=tenant01]]></screen>
       <para>The default flavors are:</para>
       <informaltable>
         <tgroup cols="4">
-          <colspec colwidth="40*"/>
-          <colspec colwidth="10*"/>
-          <colspec colwidth="25*"/>
-          <colspec colwidth="25*"/>
+          <colspec colwidth="23.5*"/>
+          <colspec colwidth="17.6*"/>
+          <colspec colwidth="29.4*"/>
+          <colspec colwidth="29.4*"/>
           <thead>
             <row>
               <entry>
@@ -5461,8 +5451,8 @@ Usage from 2013-06-25 to 2013-07-24:
         <table>
           <title>Compute quota descriptions</title>
           <tgroup cols="2">
-            <colspec colwidth="30*"/>
-            <colspec colwidth="70*"/>
+            <colspec colwidth="20.0*"/>
+            <colspec colwidth="80.0*"/>
             <thead>
               <row>
                 <entry>
@@ -5803,8 +5793,8 @@ $ nova quota-show --user $tenantUser --tenant $tenant
         <table>
           <title>Block Storage quotas</title>
           <tgroup cols="2">
-            <colspec colwidth="30*"/>
-            <colspec colwidth="70*"/>
+            <colspec colwidth="29.7*"/>
+            <colspec colwidth="70.3*"/>
             <thead>
               <row>
                 <entry>
@@ -6763,8 +6753,8 @@ list logtest]]></screen>
         </listitem>
         <listitem>
           <para>
-            <link xlink:href="https://bugs.launchpad.net/tuskar">Bugs:
-              Deployment service (tuskar)</link>
+            <link xlink:href="https://bugs.launchpad.net/fuel">Bugs: Deployment
+              service (fuel)</link>
           </para>
         </listitem>
         <listitem>
